@@ -1,0 +1,23 @@
+0.6
+2018.2
+Jun 14 2018
+20:41:02
+C:/Users/Brad/pipelinedMIPS32/MIPS32.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sim_1/imports/testbench/tb_mips_top.v,1555625580,verilog,,,,tb_mips_top,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/auxdec.v,1555558713,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/combinational_multiplier.v,,auxdec,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/controlunit.v,1555625065,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/datapath.v,,controlunit,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/maindec.v,1555650593,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v,,maindec,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/adder.v,1529274694,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/alu.v,,adder,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/alu.v,1555559561,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/auxdec.v,,alu,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/datapath.v,1555628412,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/divider_circuit.v,,datapath,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/dreg.v,1529267352,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/ext_unit.v,,dreg,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v,1529274740,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/regfile.v,,mux2,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/regfile.v,1555547177,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sim_1/imports/testbench/tb_mips_top.v,,regfile,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/dmem.v,1529284862,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/dreg.v,,dmem,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/imem.v,1529285836,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/maindec.v,,imem,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v,1555651063,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips_top.v,,mips,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips_top.v,1555634646,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mul_div_unit.v,,mips_top,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/combinational_multiplier.v,1555301282,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/controlunit.v,,combinational_multiplier,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/divider_circuit.v,1555559902,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/dmem.v,,divider_circuit,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/ext_unit.v,1555559215,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/imem.v,,ext_unit,,,,SIM=,,,,
+C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mul_div_unit.v,1555560001,verilog,,C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v,,mul_div_unit,,,,SIM=,,,,
