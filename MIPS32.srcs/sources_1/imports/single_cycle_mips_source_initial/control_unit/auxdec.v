@@ -11,7 +11,8 @@ module auxdec (
 	output wire	      hi0_lo1_sel,
 	output wire       mul0_div1_sel,
 	output wire		  jr_sel,
-	output wire       signExt0_zeroExt1
+	output wire       signExt0_zeroExt1,
+	output wire	      muldiv_op
 );
 
 wire muldiv_op,

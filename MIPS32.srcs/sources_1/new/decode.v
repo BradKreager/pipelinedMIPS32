@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 03/28/2019 02:24:30 PM
+// Create Date: 04/21/2019 02:56:21 PM
 // Design Name: 
-// Module Name: barrel_shifter
+// Module Name: decode
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,13 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module barrel_shifter(
-	input			Dir,
-    input [31:0]	Din,
-    input [4:0]		Shift_By,
-    output [31:0]	Dout
+module decode(
+
     );
- 
-	assign Dout = Dir ? (Din >> Shift_By) : (Din << Shift_By);
-	
 endmodule
