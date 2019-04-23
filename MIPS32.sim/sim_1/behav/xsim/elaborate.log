@@ -22,7 +22,6 @@ Compiling module xil_defaultlib.alu
 Compiling module xil_defaultlib.combinational_multiplier
 Compiling module xil_defaultlib.divider_circuit
 Compiling module xil_defaultlib.mul_div_unit
-Compiling module xil_defaultlib.dreg_sync_rst(WIDTH=1)
 Compiling module xil_defaultlib.dreg
 Compiling module xil_defaultlib.datapath
 Compiling module xil_defaultlib.maindec

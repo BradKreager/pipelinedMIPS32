@@ -15,7 +15,6 @@ wire [2:0] a_ctrl;
 wire [31:0] alu_pb;
 
 wire [31:0] wd_rfW;
-wire  hilo_sel;
 wire  branchE;
 wire  jumpE;
 wire  alu_src_immE;
@@ -144,7 +143,6 @@ mips_top DUT (
            .a_ctrl (a_ctrl),
            .alu_pb (alu_pb),
            .wd_rfW                      (wd_rfW),
-           .hilo_sel                    (hilo_sel),
            .branchE                     (branchE),
            .jumpE                       (jumpE),
            .alu_src_immE                (alu_src_immE),

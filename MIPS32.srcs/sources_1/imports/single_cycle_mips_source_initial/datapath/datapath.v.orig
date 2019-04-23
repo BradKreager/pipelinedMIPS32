@@ -2,14 +2,13 @@
 
 module datapath (
 `ifdef SIM
-wire muldiv_enE,
- wire     muldiv_enE_qual,
- wire hilo_read_done,
+         output wire muldiv_enE,
+         output reg muldiv_enE_qual,
+         output reg hilo_read_done,
          output wire [31:0] wd_rfW,
          output wire [31:0] rd1,
          output wire [31:0] alu_pb_sim,
 
-         output wire		hilo_sel,
          output wire		   branchE,
 
          output wire		   jumpE,
@@ -68,7 +67,6 @@ wire muldiv_enE,
 
          output wire [31:0] rd1_outE,
          output wire [31:0] rd2_outE,
-         output wire [31:0] rd2_outM,
          output wire [31:0] sext_immE,
 
          output wire [4:0] rsE,
@@ -208,16 +206,16 @@ wire [31:0] muldiv_high_regE;
 wire [31:0] muldiv_low_regE;
 
 `ifndef SIM
-wire muldiv_enE,
-     muldiv_enE_qual,
-     hilo_read_done;
+        wire muldiv_enE;
 
-        /* Pipeline signals */
+reg    hilo_read_done,
+       muldiv_enE_qual;
 
-        // control signals
-        wire [31:0] wd_rfW;
+/* Pipeline signals */
 
-wire		hilo_sel;
+// control signals
+wire [31:0] wd_rfW;
+
 wire		   branchE;
 
 wire		   jumpE;
@@ -276,7 +274,6 @@ wire [31:0]		wd_alu_dmW;
 
 wire [31:0] rd1_outE,
      rd2_outE,
-     rd2_outM,
      sext_immE;
 
 wire [4:0] rsE,
@@ -313,9 +310,30 @@ assign ba = {sext_imm[29:0], 2'b00};
 assign jta = {pc_plus4D[31:28], instrD[25:0], 2'b00};
 assign wd_dm = wd_dmM;
 
+always @(posedge clk, posedge rst)
+  begin
+    if(rst | hilo_mov_opE)
+      begin
+        hilo_read_done <= 1'b1;
+        muldiv_enE_qual <= 1'b1;
+      end
+    else
+      begin
+        if(muldiv_enE)
+          begin
+            hilo_read_done <= 1'b0;
+            muldiv_enE_qual <= muldiv_enE_qual;
+          end
+        else
+          begin
+            hilo_read_done <= hilo_read_done;
+            muldiv_enE_qual <= hilo_read_done;
+          end
+      end
+
+  end
 
 assign muldiv_enE = muldiv_op;
-assign muldiv_enE_qual = muldiv_enE & hilo_read_done;
 
 /* --- Pipeline (control signals) --- */
 wire [17:0] csSigsE;
@@ -583,19 +601,10 @@ mul_div_unit
   mul_div(
     .inA                    (rd1_outE),
     .inB                    (rd2_outE),
-    .en				       (muldiv_enE_qual),
+    .en				        (muldiv_enE_qual),
     .mul0_div1_sel          (mul0_div1_selE),
     .outH                   (muldiv_highE),
     .outL                   (muldiv_lowE)
-  );
-
-dreg_sync_rst
-  #(1) muldiv_read_done_flag_reg
-  (
-    .clk            (clk),
-    .rst            (muldiv_enE),
-    .d              (hilo_mov_opE),
-    .q              (hilo_read_done)
   );
 
 

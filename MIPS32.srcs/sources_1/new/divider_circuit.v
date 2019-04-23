@@ -8,17 +8,13 @@ module divider_circuit(
          output reg [31:0] outR
        );
 
+
 always @(*)
   begin
     if(en)
       begin
-        outQ = inA / inB;
-        outR = inA % inB;
-      end
-    else
-      begin
-        outQ = outQ;
-        outR = outR;
+        outQ <= inA / inB;
+        outR <= inA % inB;
       end
   end
 endmodule

@@ -15,8 +15,7 @@ module auxdec (
 	output wire	      muldiv_op
 );
 
-wire muldiv_op,
-	jump_reg_op;
+wire jump_reg_op;
 
 
 assign slt_op = 

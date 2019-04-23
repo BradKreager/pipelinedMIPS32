@@ -15,7 +15,6 @@ wire [2:0] a_ctrl;
 wire [31:0] alu_pb;
 
 wire [31:0] wd_rfW;
-wire  hilo_sel;
 wire  branchE;
 wire  jumpE;
 wire  alu_src_immE;
@@ -50,7 +49,6 @@ wire [31:0] wd_hiloW;
 wire [31:0] wd_alu_dmW;
 wire [31:0] rd1_outE;
 wire [31:0] rd2_outE;
-wire [31:0] rd2_outM;
 wire [31:0] sext_immE;
 wire [4:0] rsE;
 wire [4:0] rtE;
@@ -128,9 +126,9 @@ wire     muldiv_enE_qual;
 wire hilo_read_done;
 
 mips_top DUT (
-       .muldiv_enE                  (muldiv_enE),
-       .muldiv_enE_qual             (muldiv_enE_qual),
-       .hilo_read_done              (hilo_read_done),
+           .muldiv_enE                  (muldiv_enE),
+           .muldiv_enE_qual             (muldiv_enE_qual),
+           .hilo_read_done              (hilo_read_done),
            .clk            (clk),
            .rst            (rst),
            .we_dm          (we_dm),
@@ -145,7 +143,6 @@ mips_top DUT (
            .a_ctrl (a_ctrl),
            .alu_pb (alu_pb),
            .wd_rfW                      (wd_rfW),
-           .hilo_sel                    (hilo_sel),
            .branchE                     (branchE),
            .jumpE                       (jumpE),
            .alu_src_immE                (alu_src_immE),
@@ -180,7 +177,6 @@ mips_top DUT (
            .wd_alu_dmW                  (wd_alu_dmW),
            .rd1_outE                    (rd1_outE),
            .rd2_outE                    (rd2_outE),
-           .rd2_outM                    (rd2_outM),
            .sext_immE                   (sext_immE),
            .rsE                         (rsE),
            .rtE                         (rtE),

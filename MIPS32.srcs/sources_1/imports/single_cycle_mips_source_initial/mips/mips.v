@@ -2,9 +2,9 @@
 
 module mips (
 `ifdef SIM
-         wire muldiv_enE,
-         wire     muldiv_enE_qual,
-         wire hilo_read_done,
+         output wire muldiv_enE,
+         output wire     muldiv_enE_qual,
+         output wire hilo_read_done,
          output wire [31:0] rAT,
          output wire [31:0] rV0,
          output wire [31:0] rV1,
@@ -44,7 +44,6 @@ module mips (
 
          output wire [31:0] wd_rfW,
 
-         output wire		hilo_sel,
          output wire		   branchE,
 
          output wire		   jumpE,
@@ -132,7 +131,8 @@ module mips (
          output wire [31:0] alu_pb,
          output wire [2:0] a_ctrl,
          output wire [31:0] rd1,
-         wire [31:0] instrD,
+         output wire [31:0] instrD,
+         output wire        arith_overflow,
 
 
 `endif
@@ -173,6 +173,7 @@ wire  slt_op;
 wire  muldiv_op;
 `ifndef SIM
         wire [31:0] instrD;
+wire arith_overflow;
 `endif
 
 datapath dp (
@@ -183,7 +184,6 @@ datapath dp (
            .rd1 (rd1),
            .alu_pb_sim (alu_pb),
            .wd_rfW                      (wd_rfW),
-           .hilo_sel                    (hilo_sel),
            .branchE                     (branchE),
            .jumpE                       (jumpE),
            .alu_src_immE                (alu_src_immE),
@@ -294,7 +294,8 @@ datapath dp (
            .slt_op                 (slt_op),
            .arith_op                (arith_op),
            .instrD                 (instrD),
-		   .muldiv_op              (muldiv_op)
+           .muldiv_op              (muldiv_op),
+           .arith_overflow         (arith_overflow)
 
          );
 
@@ -312,16 +313,13 @@ controlunit cu (
               .hilo_mov_op             (hilo_mov_op),
               .hi0_lo1_sel             (hi0_lo1_sel),
               .mul0_div1_sel           (mul0_div1_sel),
-              .muldiv_reg_sel          (muldiv_reg_sel),
-              .alu_out_sel             (alu_out_sel),
-              .hilo_shift_sel          (hilo_shift_sel),
               .alu_src_imm             (alu_src_imm),
               .wr_ra_jal               (wr_ra_jal),
               .wr_ra_instr             (wr_ra_instr),
               .jal_wd_sel              (jal_wd_sel),
               .dm_load_op              (dm_load_op),
               .alu_ctrl                (alu_ctrl),
-			  .muldiv_op              (muldiv_op),
+              .muldiv_op              (muldiv_op),
               .signExt0_zeroExt1       (signExt0_zeroExt1)
             );
 endmodule

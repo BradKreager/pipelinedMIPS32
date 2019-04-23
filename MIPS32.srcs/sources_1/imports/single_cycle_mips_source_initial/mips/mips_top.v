@@ -3,7 +3,7 @@ module mips_top (
          wire muldiv_enE,
          wire     muldiv_enE_qual,
          wire hilo_read_done,
-		 wire [31:0] instrD,
+         wire [31:0] instrD,
          output wire [31:0] rAT,
          output wire [31:0] rV0,
          output wire [31:0] rV1,
@@ -46,7 +46,6 @@ module mips_top (
 
          output wire [31:0] wd_rfW,
 
-         output wire		hilo_sel,
          output wire		   branchE,
 
          output wire		   jumpE,
@@ -154,7 +153,6 @@ mips mips (
        .a_ctrl (a_ctrl),
        .alu_pb (alu_pb),
        .wd_rfW                      (wd_rfW),
-       .hilo_sel                    (hilo_sel),
        .branchE                     (branchE),
        .jumpE                       (jumpE),
        .alu_src_immE                (alu_src_immE),
@@ -208,7 +206,7 @@ mips mips (
        .rd_dmW                      (rd_dmW),
        .hilo_mux_outW               (hilo_mux_outW),
        .pc_plus8E                   (pc_plus8E),
-	   .instrD                 (instrD),
+       .instrD                 (instrD),
 
        .rAT          (rAT),
        .rV0          (rV0),

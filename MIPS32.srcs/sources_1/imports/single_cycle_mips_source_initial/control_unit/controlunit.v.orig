@@ -12,15 +12,13 @@ module controlunit (
          output wire  hilo_mov_op,
          output wire  hi0_lo1_sel,
          output wire  mul0_div1_sel,
-         output wire  muldiv_reg_sel,
-         output wire  alu_out_sel,
-         output wire  hilo_shift_sel,
          output wire  alu_src_imm,
          output wire  wr_ra_jal,
          output wire  wr_ra_instr,
          output wire  jal_wd_sel,
          output wire  dm_load_op,
          output wire  jr_sel,
+		 output wire  muldiv_op,
          output  wire        signExt0_zeroExt1,
          output wire [2:0]  alu_ctrl
        );
@@ -51,7 +49,8 @@ auxdec ad (
          .funct                   (funct),
          .r_type                  (r_type),
 
-         .jr_sel				     (jr_sel),
+		 .muldiv_op               (muldiv_op),
+         .jr_sel			      (jr_sel),
          .alu_ctrl                (alu_ctrl),
          .slt_op                  (slt_op),
          .arith_op                (arith_op),
