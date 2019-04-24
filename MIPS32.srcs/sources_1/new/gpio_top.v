@@ -62,7 +62,8 @@ module gpio_top # (parameter WIDTH = 32)(
         .a(gpI1),
         .b(gpI2),
         .c(gpO1),
-        .d(gpO2)
+        .d(gpO2),
+        .y(rd)
     );
     
     gpio_ad addr (
