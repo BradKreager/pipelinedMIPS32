@@ -65,5 +65,54 @@ module tb_fact();
     initial begin
         reset;
         tick;
+        
+        $display("Performing simple factorial test...");
+        //Select the input register for writing
+        a_t = 2'b00;
+        //Enable writes
+        we_t = 1'b1;
+        //Tell the module to perform the 3!
+        wd_t = 4'd3;
+        //Tick the module to write to the input register
+        tick;
+        
+        //Write to the go bit to start the computation
+        //Select the go register for writing
+        a_t = 2'b01;
+        //Enable writes
+        we_t = 1'b1;
+        //Write a 1 to the go register
+        wd_t = 4'b0001;
+        //Tick the module to write to the go register
+        tick;
+        
+        //Select the status register for reading
+        a_t = 2'b10;
+        //Disable writes
+        we_t = 1'b0;
+        //Tick so the status register gets read (could use a delay, address decoder is combinational)
+        tick;
+        tick;
+        //Tick the module until the done flag gets set
+        while(!rd_t[0]) begin
+            $display("Ticking factorial module...");
+            tick;
+        end
+        
+        //When the module is done calculating, output the result and check it
+        //Select the output register for reading
+        a_t = 2'b11;
+        //Disable writes
+        we_t = 1'b0;
+        //Tick so the data becomes available. (could use a simple delay here, address decoder is combinational)
+        tick;
+        //Check the output
+        if(rd_t == 32'd6) begin
+            $display("SUCCESS: Expected %d, got %d", 6, rd_t);
+        end
+        else begin
+            $display("ERROR: Expected %d, got $d", 6, rd_t);
+            errors = errors + 1;
+        end
     end
 endmodule

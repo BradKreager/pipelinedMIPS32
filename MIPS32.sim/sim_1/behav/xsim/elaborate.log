@@ -1,16 +1,31 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 19e17cd5c1c14c1baa3ee85d0e03626f --incr --debug typical --relax --mt 2 -d SIM= -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_gpio_behav xil_defaultlib.tb_gpio xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
+Running: /home/ghaack/.local/bin/Xilinx/Vivado/2018.3/bin/unwrapped/lnx64.o/xelab -wto 19e17cd5c1c14c1baa3ee85d0e03626f --incr --debug typical --relax --mt 8 -d SIM= -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_fact_behav xil_defaultlib.tb_fact xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'a' [/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v:59]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'b' [/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v:60]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'y' [/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v:62]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'a' [/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v:86]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'b' [/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v:87]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 8 for port 'y' [/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v:89]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.fact_ad
+Compiling module xil_defaultlib.updown
+Compiling module xil_defaultlib.mux2
 Compiling module xil_defaultlib.dreg_sync_rst_en
+Compiling module xil_defaultlib.comb_multiplier32
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.factorial_dp
+Compiling module xil_defaultlib.factorial_fsm
+Compiling module xil_defaultlib.fact
+Compiling module xil_defaultlib.dreg_sync_rst_en(WIDTH=4)
+Compiling module xil_defaultlib.dreg_sync_rst_en(WIDTH=1)
 Compiling module xil_defaultlib.mux4(WIDTH=32)
-Compiling module xil_defaultlib.gpio_ad
-Compiling module xil_defaultlib.gpio_top
-Compiling module xil_defaultlib.tb_gpio
+Compiling module xil_defaultlib.fact_top
+Compiling module xil_defaultlib.tb_fact
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_gpio_behav
+Built simulation snapshot tb_fact_behav

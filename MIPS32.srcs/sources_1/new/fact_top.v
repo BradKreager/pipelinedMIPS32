@@ -115,7 +115,7 @@ module fact_top(
         .sel(rd_sel),
         .a({28'b0, n}),
         .b({31'b0, go}),
-        .c({30'b0, res_done, res_err}),
+        .c({30'b0, res_err, res_done}),
         .d(result),
         .y(rd)
     );
