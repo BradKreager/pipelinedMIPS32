@@ -9,13 +9,6 @@ module mux4 #(parameter WIDTH = 8) (
         output wire [WIDTH-1:0] y
     );
 
-	always @(*) begin
-		case(sel)
-			2'b00: y = a;
-			2'b01: y = b;
-			2'b10: y = c;
-			2'b11: y = d;
-			default: y = {WIDTH{'bx}};
-		endcase;
-	end
+    assign y = (sel[1] ? (sel[0] ? d : c) : (sel[0] ? b : a));
+
 endmodule
