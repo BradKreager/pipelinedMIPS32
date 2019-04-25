@@ -84,6 +84,15 @@ module fact_top(
         .q(go)
     );
     
+    //This dreg takes the combinational go pulse and generates the real go pulse
+    dreg_sync_rst_en #(1) go_signal_dreg(
+        .clk(clk),
+        .rst(rst),
+        .en(1'b1),
+        .d(go_pulse_comb),
+        .q(go_pulse)
+    );
+    
     //This dreg stores the done flag from the factorial accelerator
     dreg_sync_rst_en #(1) done_bit_dreg(
         .clk(clk),

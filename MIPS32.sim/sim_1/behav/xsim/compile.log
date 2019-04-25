@@ -1,24 +1,24 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comb_multiplier.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comb_multiplier.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module comb_multiplier32
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comparator.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comparator.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module comparator
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/dreg_en.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/dreg_en.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dreg_sync_rst_en
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/fact_ad.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/fact_ad.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fact_ad
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/fact_top.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/fact_top.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fact_top
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fact
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module factorial_dp
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_fsm.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module factorial_fsm
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mux2
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mux4.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mux4.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mux4
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/up_down_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/up_down_counter.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module updown
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sim_1/new/tb_fact.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sim_1/new/tb_fact.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tb_fact

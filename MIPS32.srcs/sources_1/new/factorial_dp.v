@@ -38,7 +38,7 @@ module factorial_dp(
         output [31:0]factorial_out
     );
     
-    assign err = n > 8'd12 ? 1 : 0;
+    assign err = (n > 8'd12 ? 1 : 0) | n == 0;
     
     wire [7:0] dwn_cnt_out_w;
     wire [31:0] mult_out_w;
@@ -55,7 +55,7 @@ module factorial_dp(
         .q(dwn_cnt_out_w)
     );
     
-    mux2 prod_mux(
+    mux2 #(32)prod_mux(
         .a(32'd1),
         .b(mult_out_w),
         .sel(prod_mux_sel),
@@ -82,7 +82,7 @@ module factorial_dp(
         .gt(a_gt_b)
     );
     
-    mux2 out_mux(
+    mux2 #(32)out_mux(
         .a(32'd0),
         .b(prod_reg_out_w),
         .sel(out_mux_sel),

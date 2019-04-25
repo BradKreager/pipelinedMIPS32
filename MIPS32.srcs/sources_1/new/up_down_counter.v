@@ -36,23 +36,23 @@ module updown#(parameter WIDTH=8)(
         //Async reset
         if(rst)begin
            q = 0;
-           $display("COUNT: Reset");
+           //$display("COUNT: Reset");
         end
         else if(clk) begin
             //Synchronous load
             if(ld & ce) begin
                 q <= d;
-                $display("COUNT: Loaded %d", q);
+                //$display("COUNT: Loaded %d", q);
             end
             //Synchronous down count
             else if(!ud & ce) begin
                 q <= q - 1;
-                $display("COUNT: --, %d", q);
+                //$display("COUNT: --, %d", q);
             end
             //Synchronous up count
             else if(ud & ce) begin
                 q <= q + 1;
-                $display("COUNT: ++, %d", q);
+                //$display("COUNT: ++, %d", q);
             end
             //Otherwise, hold state
             else begin
