@@ -3,4 +3,4 @@
 !/MIPS32.xpr
 !/.gitignore
 !/README.md
-!**/*.bit
+!MIPS32.runs/**/*.bit
