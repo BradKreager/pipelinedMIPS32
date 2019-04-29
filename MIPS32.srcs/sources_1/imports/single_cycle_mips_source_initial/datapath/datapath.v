@@ -601,6 +601,7 @@ mul_div_unit
   mul_div(
     .inA                    (rd1_outE),
     .inB                    (rd2_outE),
+	.clk					(clk),
     .en				        (muldiv_enE_qual),
     .mul0_div1_sel          (mul0_div1_selE),
     .outH                   (muldiv_highE),
