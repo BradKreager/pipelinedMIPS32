@@ -3,8 +3,10 @@
 Dec  7 2018
 00:33:28
 C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.sim/sim_1/behav/xsim/glbl.v,1555980637,verilog,,,,glbl,,,,,,,,
+C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sim_1/new/addr_dec_tb.v,1556589134,verilog,,,,addr_dec_tb,,,,SIM=,,,,
 C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sim_1/new/tb_fact.v,1556153582,verilog,,,,tb_fact,,,,SIM=,,,,
 C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v,1555980638,verilog,,C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mux4.v,,mux2,,,,SIM=,,,,
+C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/addr_dec.v,1556589665,verilog,,C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sim_1/new/addr_dec_tb.v,,addr_dec,,,,SIM=,,,,
 C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comb_multiplier.v,1555982206,verilog,,C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comparator.v,,comb_multiplier32,,,,SIM=,,,,
 C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comparator.v,1555896028,verilog,,C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/dreg_en.v,,comparator,,,,SIM=,,,,
 C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/dreg_en.v,1555981175,verilog,,C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/fact_ad.v,,dreg_sync_rst_en,,,,SIM=,,,,

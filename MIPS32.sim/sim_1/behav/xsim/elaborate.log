@@ -1,25 +1,7 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 19e17cd5c1c14c1baa3ee85d0e03626f --incr --debug typical --relax --mt 2 -d SIM= -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_fact_behav xil_defaultlib.tb_fact xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 19e17cd5c1c14c1baa3ee85d0e03626f --incr --debug typical --relax --mt 2 -d SIM= -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot addr_dec_tb_behav xil_defaultlib.addr_dec_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.fact_ad
-Compiling module xil_defaultlib.updown
-Compiling module xil_defaultlib.mux2(WIDTH=32)
-Compiling module xil_defaultlib.dreg_sync_rst_en
-Compiling module xil_defaultlib.comb_multiplier32
-Compiling module xil_defaultlib.comparator
-Compiling module xil_defaultlib.factorial_dp
-Compiling module xil_defaultlib.factorial_fsm
-Compiling module xil_defaultlib.fact
-Compiling module xil_defaultlib.dreg_sync_rst_en(WIDTH=4)
-Compiling module xil_defaultlib.dreg_sync_rst_en(WIDTH=1)
-Compiling module xil_defaultlib.mux4(WIDTH=32)
-Compiling module xil_defaultlib.fact_top
-Compiling module xil_defaultlib.tb_fact
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_fact_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

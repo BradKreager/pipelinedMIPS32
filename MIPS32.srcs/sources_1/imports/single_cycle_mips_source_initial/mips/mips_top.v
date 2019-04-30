@@ -139,11 +139,13 @@ module mips_top (
          output wire [31:0] instr,
          output wire [31:0] alu_out,
          output wire [31:0] wd_dm,
-         output wire [31:0] rd_dm,
+         output wire [31:0] rd,
          output wire [31:0] rd3
        );
 
 // wire [31:0] DONT_USE;
+
+ wire [31:0]soc_rd;
 
 mips mips (
 `ifdef SIM
@@ -245,7 +247,7 @@ mips mips (
        .rst            (rst),
        .ra3            (ra3),
        .instr          (instr),
-       .rd_dm          (rd_dm),
+       .rd             (soc_rd),
        .we_dm          (we_dm),
        .pc_current     (pc_current),
        .alu_out        (alu_out),
@@ -258,12 +260,58 @@ imem imem (
        .y              (instr)
      );
 
+ wire we_gpio;
+ wire we_fact;
+ wire we_mem;
+ 
+ wire [1:0]rd_sel;
+ 
+ wire [31:0]fact_rd;
+ wire [31:0]gpio_rd;
+ wire [31:0]rd_dm;
+
+ addr_dec addr(
+    .we(we_dm),
+    .a(pc_current),
+    .we_gpio(we_gpio),
+    .we_fact(we_fact),
+    .we_mem(we_mem), 
+    .rd_sel(rd_sel)
+ );
+
 dmem dmem (
        .clk            (clk),
-       .we             (we_dm),
+       .we             (we_mem),
        .a              (alu_out[7:2]),
        .d              (wd_dm),
        .q              (rd_dm)
      );
+     
+ fact_top fact(
+    .a(pc_current[3:2]),
+    .we(we_fact),
+    .wd(wd_dm[3:0]),
+    .clk(clk),
+    .rst(rst),
+    .rd(fact_rd)
+    );
+ 
+ gpio_top gpio(
+    .clk(clk),
+    .rst(rst),
+    .wd(wd_dm),
+    .rd(gpio_rd),
+    .we(we_gpio),
+    .a(pc_current[3:0])
+ );
+ 
+ mux4 #(32) rd_mux(
+    .a(rd_dm),
+    .b(rd_dm),
+    .c(fact_rd),
+    .d(gpio_rd),
+    .y(soc_rd),
+    .sel(rd_sel)
+ );
 
 endmodule

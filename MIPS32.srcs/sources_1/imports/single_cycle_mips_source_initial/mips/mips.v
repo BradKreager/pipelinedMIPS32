@@ -140,7 +140,7 @@ module mips (
          input  wire        rst,
          input  wire [4:0]  ra3,
          input  wire [31:0] instr,
-         input  wire [31:0] rd_dm,
+         input  wire [31:0] rd,
          output wire        we_dm,
          output wire [31:0] pc_current,
          output wire [31:0] alu_out,
