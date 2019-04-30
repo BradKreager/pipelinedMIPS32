@@ -1,10 +1,6 @@
 /*
-!MIPS32.srcs/
-!MIPS32.runs/
-MIPS32.runs/*
-!MIPS32.runs/impl_1
-MIPS32.runs/impl_1/*
-!MIPS32.runs/impl_1/*.bit
-!/MIPS32.xpr
+!/sources
+!/project.tcl
+!/build_proj
 !/README.md
 !/.gitignore
