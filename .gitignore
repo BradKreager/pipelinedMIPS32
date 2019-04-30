@@ -1,6 +1,6 @@
 /**
-!/sources/
-#!/sources/**/*
+#!/sources/
+!/sources/**/*
 !/project.tcl
 !/build_project.lnk
 !/README.md
