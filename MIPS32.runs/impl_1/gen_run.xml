@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1555628424">
+  <File Type="BITSTR-BMM" Name="mips_fpga_bd.bmm"/>
   <File Type="ROUTE-PWR" Name="mips_fpga_power_routed.rpt"/>
   <File Type="PA-TCL" Name="mips_fpga.tcl"/>
-  <File Type="BITSTR-BMM" Name="mips_fpga_bd.bmm"/>
+  <File Type="OPT-DCP" Name="mips_fpga_opt.dcp"/>
   <File Type="ROUTE-PWR-SUM" Name="mips_fpga_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="mips_fpga_reports.tcl"/>
-  <File Type="OPT-DCP" Name="mips_fpga_opt.dcp"/>
   <File Type="OPT-DRC" Name="mips_fpga_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="mips_fpga.hwdef"/>
   <File Type="PWROPT-DCP" Name="mips_fpga_pwropt.dcp"/>
@@ -25,19 +25,20 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="mips_fpga_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="mips_fpga_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="mips_fpga_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="mips_fpga_drc_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="mips_fpga.ltx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="mips_fpga_drc_routed.rpx"/>
   <File Type="BITSTR-MMI" Name="mips_fpga.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="mips_fpga_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="mips_fpga_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="mips_fpga_methodology_drc_routed.pb"/>
   <File Type="BITSTR-SYSDEF" Name="mips_fpga.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="mips_fpga_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="mips_fpga_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="mips_fpga_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="mips_fpga_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="mips_fpga_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="mips_fpga_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="mips_fpga_timing_summary_routed.rpx"/>
+  <File Type="RDI-RDI" Name="mips_fpga.vdi"/>
   <File Type="ROUTE-CLK" Name="mips_fpga_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="mips_fpga_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="mips_fpga_bus_skew_routed.pb"/>
@@ -48,7 +49,6 @@
   <File Type="BITSTR-RBT" Name="mips_fpga.rbt"/>
   <File Type="BITSTR-NKY" Name="mips_fpga.nky"/>
   <File Type="BG-DRC" Name="mips_fpga.drc"/>
-  <File Type="RDI-RDI" Name="mips_fpga.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
