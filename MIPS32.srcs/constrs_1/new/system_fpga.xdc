@@ -18,16 +18,16 @@ set_property -dict {PACKAGE_PIN U16 IOSTANDARD LVCMOS33} [get_ports {led[4]}];  
 set_property -dict {PACKAGE_PIN E19 IOSTANDARD LVCMOS33} [get_ports {led[3]}];  # LED 1
 
 # 7 segment display
-set_property -dict {PACKAGE_PIN W7 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[0]}]; # CA
-set_property -dict {PACKAGE_PIN W6 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[1]}]; # CB
-set_property -dict {PACKAGE_PIN U8 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[2]}]; # CC
-set_property -dict {PACKAGE_PIN V8 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[3]}]; # CD
-set_property -dict {PACKAGE_PIN U5 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[4]}]; # CE
-set_property -dict {PACKAGE_PIN V5 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[5]}]; # CF
-set_property -dict {PACKAGE_PIN U7 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[6]}]; # CG
-set_property -dict {PACKAGE_PIN V7 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[7]}]; # DP
+set_property -dict {PACKAGE_PIN W7 IOSTANDARD LVCMOS33} [get_ports {sseg[0]}]; # CA
+set_property -dict {PACKAGE_PIN W6 IOSTANDARD LVCMOS33} [get_ports {sseg[1]}]; # CB
+set_property -dict {PACKAGE_PIN U8 IOSTANDARD LVCMOS33} [get_ports {sseg[2]}]; # CC
+set_property -dict {PACKAGE_PIN V8 IOSTANDARD LVCMOS33} [get_ports {sseg[3]}]; # CD
+set_property -dict {PACKAGE_PIN U5 IOSTANDARD LVCMOS33} [get_ports {sseg[4]}]; # CE
+set_property -dict {PACKAGE_PIN V5 IOSTANDARD LVCMOS33} [get_ports {sseg[5]}]; # CF
+set_property -dict {PACKAGE_PIN U7 IOSTANDARD LVCMOS33} [get_ports {sseg[6]}]; # CG
+set_property -dict {PACKAGE_PIN V7 IOSTANDARD LVCMOS33} [get_ports {sseg[7]}]; # DP
 
-set_property -dict {PACKAGE_PIN U2 IOSTANDARD LVCMOS33} [get_ports {LEDSEL[0]}]; # AN0
-set_property -dict {PACKAGE_PIN U4 IOSTANDARD LVCMOS33} [get_ports {LEDSEL[1]}]; # AN1
-set_property -dict {PACKAGE_PIN V4 IOSTANDARD LVCMOS33} [get_ports {LEDSEL[2]}]; # AN2
-set_property -dict {PACKAGE_PIN W4 IOSTANDARD LVCMOS33} [get_ports {LEDSEL[3]}]; # AN3
+set_property -dict {PACKAGE_PIN U2 IOSTANDARD LVCMOS33} [get_ports {an[0]}]; # AN0
+set_property -dict {PACKAGE_PIN U4 IOSTANDARD LVCMOS33} [get_ports {an[1]}]; # AN1
+set_property -dict {PACKAGE_PIN V4 IOSTANDARD LVCMOS33} [get_ports {an[2]}]; # AN2
+set_property -dict {PACKAGE_PIN W4 IOSTANDARD LVCMOS33} [get_ports {an[3]}]; # AN3

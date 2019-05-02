@@ -27,8 +27,8 @@ module system_fpga(
     input sel,
     input [4:0]n,
     
-    output an,
-    output sseg,
+    output [3:0]an,
+    output [7:0]sseg,
     output [4:0]led
 );
 
