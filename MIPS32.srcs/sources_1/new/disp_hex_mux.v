@@ -29,8 +29,41 @@ module disp_hex_mux(
         output sseg
     );
     
-    hex_to_7seg hex0();
-    hex_to_7seg hex1();
-    hex_to_7seg hex2();
-    hex_to_7seg hex3();
+    wire [7:0]hex0_out;
+    wire [7:0]hex1_out;
+    wire [7:0]hex2_out;
+    wire [7:0]hex3_out;
+    reg [1:0] sel;
+    
+    hex_to_7seg hex0(
+        .HEX(hex[3:0]),
+        .s(hex0_out)
+    );
+    
+    hex_to_7seg hex1(
+        .HEX(hex[7:4]),
+        .s(hex1_out)
+    );
+    
+    hex_to_7seg hex2(
+        .HEX(hex[11:8]),
+        .s(hex2_out)
+    );
+    hex_to_7seg hex3(
+        .HEX(hex[15:12]),
+        .s(hex3_out)
+    );
+    
+    mux4 #(8) out_mux(
+        .a(hex0),
+        .b(hex1),
+        .c(hex2),
+        .d(hex3),
+        .sel(sel)
+    );
+    
+    always @(posedge clk) begin
+        sel = sel + 1;
+    end
+    
 endmodule
