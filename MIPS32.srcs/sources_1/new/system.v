@@ -26,11 +26,11 @@ module system (
     input [31:0]gpI2,
     
     output [31:0]gpO2,
-    output [31:0]gpO1
+    output [31:0]gpO1,
+    output [31:0]pc_current
     );
 
 // wire [31:0] DONT_USE;
-wire [31:0] pc_current;
 wire [31:0] alu_out;
 wire [31:0] instr;
 wire [31:0] soc_rd;

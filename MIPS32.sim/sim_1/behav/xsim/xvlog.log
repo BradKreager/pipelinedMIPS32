@@ -54,8 +54,6 @@ INFO: [VRFC 10-2458] undeclared symbol arith_op, assumed default net type wire [
 INFO: [VRFC 10-2458] undeclared symbol muldiv_reg_sel, assumed default net type wire [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v:90]
 INFO: [VRFC 10-2458] undeclared symbol alu_out_sel, assumed default net type wire [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v:91]
 INFO: [VRFC 10-2458] undeclared symbol hilo_shift_sel, assumed default net type wire [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v:92]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips_top.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module mips_top
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mul_div_unit.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mul_div_unit
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v" into library xil_defaultlib
@@ -65,7 +63,12 @@ INFO: [VRFC 10-311] analyzing module mux4
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/regfile.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module regfile
 INFO: [VRFC 10-2458] undeclared symbol rA3, assumed default net type wire [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/regfile.v:80]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system
+INFO: [VRFC 10-2458] undeclared symbol rd1, assumed default net type wire [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v:43]
+INFO: [VRFC 10-2458] undeclared symbol a_ctrl, assumed default net type wire [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v:44]
+INFO: [VRFC 10-2458] undeclared symbol alu_pb, assumed default net type wire [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v:45]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/up_down_counter.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module updown
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sim_1/imports/testbench/tb_mips_top.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_mips_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sim_1/new/tb_system.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_system

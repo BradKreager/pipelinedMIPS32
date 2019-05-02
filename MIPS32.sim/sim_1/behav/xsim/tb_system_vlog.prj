@@ -1,0 +1,39 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  -d "SIM=" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/adder.v" \
+"../../../../MIPS32.srcs/sources_1/new/addr_dec.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/alu.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/auxdec.v" \
+"../../../../MIPS32.srcs/sources_1/new/comb_multiplier.v" \
+"../../../../MIPS32.srcs/sources_1/new/combinational_multiplier.v" \
+"../../../../MIPS32.srcs/sources_1/new/comparator.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/controlunit.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/datapath.v" \
+"../../../../MIPS32.srcs/sources_1/new/divider_circuit.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/dmem.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/dreg.v" \
+"../../../../MIPS32.srcs/sources_1/new/dreg_en.v" \
+"../../../../MIPS32.srcs/sources_1/new/ext_unit.v" \
+"../../../../MIPS32.srcs/sources_1/new/fact_ad.v" \
+"../../../../MIPS32.srcs/sources_1/new/fact_top.v" \
+"../../../../MIPS32.srcs/sources_1/new/factorial.v" \
+"../../../../MIPS32.srcs/sources_1/new/factorial_dp.v" \
+"../../../../MIPS32.srcs/sources_1/new/factorial_fsm.v" \
+"../../../../MIPS32.srcs/sources_1/new/gpio_ad.v" \
+"../../../../MIPS32.srcs/sources_1/new/gpio_top.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/imem.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/maindec.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v" \
+"../../../../MIPS32.srcs/sources_1/new/mul_div_unit.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v" \
+"../../../../MIPS32.srcs/sources_1/new/mux4.v" \
+"../../../../MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/regfile.v" \
+"../../../../MIPS32.srcs/sources_1/new/system.v" \
+"../../../../MIPS32.srcs/sources_1/new/up_down_counter.v" \
+"../../../../MIPS32.srcs/sim_1/new/tb_system.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

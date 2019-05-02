@@ -55,10 +55,10 @@ module disp_hex_mux(
     );
     
     mux4 #(8) out_mux(
-        .a(hex0),
-        .b(hex1),
-        .c(hex2),
-        .d(hex3),
+        .a(hex0_out),
+        .b(hex1_out),
+        .c(hex2_out),
+        .d(hex3_out),
         .sel(sel)
     );
     

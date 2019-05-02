@@ -1,9 +1,12 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 19e17cd5c1c14c1baa3ee85d0e03626f --incr --debug typical --relax --mt 2 -d SIM= -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_mips_top_behav xil_defaultlib.tb_mips_top xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 19e17cd5c1c14c1baa3ee85d0e03626f --incr --debug typical --relax --mt 2 -d SIM= -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_system_behav xil_defaultlib.tb_system xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-3091] actual bit length 4 differs from formal bit length 2 for port 'a' [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips_top.v:86]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'rd1' [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v:43]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 3 for port 'a_ctrl' [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v:44]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'alu_pb' [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v:45]
+WARNING: [VRFC 10-3091] actual bit length 4 differs from formal bit length 2 for port 'a' [C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v:105]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -40,7 +43,7 @@ Compiling module xil_defaultlib.mux4(WIDTH=32)
 Compiling module xil_defaultlib.fact_top
 Compiling module xil_defaultlib.gpio_ad
 Compiling module xil_defaultlib.gpio_top
-Compiling module xil_defaultlib.mips_top
-Compiling module xil_defaultlib.tb_mips_top
+Compiling module xil_defaultlib.system
+Compiling module xil_defaultlib.tb_system
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_mips_top_behav
+Built simulation snapshot tb_system_behav
