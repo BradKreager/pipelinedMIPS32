@@ -152,6 +152,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/new/disp_hex_mux.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/divider_circuit.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab7/mip_processor/mip_processor.srcs/sources_1/new/divider_circuit.v"/>
@@ -262,15 +269,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/basys3_single_cycle_mips_validation/led_mux.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/Lab 6 Materials/basys3_single_cycle_mips_validation/led_mux.v"/>
-          <Attr Name="ImportTime" Val="1532847256"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/control_unit/maindec.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab5/lab5_processor_design_1/single_cycle_mips_source_initial/control_unit/maindec.v"/>
@@ -284,15 +282,6 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab5/lab5_processor_design_1/single_cycle_mips_source_initial/mips/mips.v"/>
           <Attr Name="ImportTime" Val="1532846912"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/mips/mips_top.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab5/lab5_processor_design_1/single_cycle_mips_source_initial/mips/mips_top.v"/>
-          <Attr Name="ImportTime" Val="1529289602"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -334,6 +323,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/new/system.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/up_down_counter.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -341,18 +337,38 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/basys3_single_cycle_mips_validation/mips_fpga.v">
+      <File Path="$PSRCDIR/sources_1/new/system_fpga.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/Lab 6 Materials/basys3_single_cycle_mips_validation/mips_fpga.v"/>
-          <Attr Name="ImportTime" Val="1547773381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/dreg_sync_rst.v">
+      <File Path="$PSRCDIR/sources_1/imports/basys3_single_cycle_mips_validation/led_mux.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/Lab 6 Materials/basys3_single_cycle_mips_validation/led_mux.v"/>
+          <Attr Name="ImportTime" Val="1532847256"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/mips/mips_top.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab5/lab5_processor_design_1/single_cycle_mips_source_initial/mips/mips_top.v"/>
+          <Attr Name="ImportTime" Val="1529289602"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/basys3_single_cycle_mips_validation/mips_fpga.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/Lab 6 Materials/basys3_single_cycle_mips_validation/mips_fpga.v"/>
+          <Attr Name="ImportTime" Val="1547773381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -366,10 +382,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/new/system_prog.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="mips_fpga"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="TopModule" Val="system_fpga"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

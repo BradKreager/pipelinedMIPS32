@@ -1,23 +1,42 @@
-module mips_top (
-`ifdef SIM
-         output wire [31:0] rd1,
-         output wire [2:0] a_ctrl,
-         output wire [31:0] alu_pb,
-`endif
-         input  wire        clk,
-         input  wire        rst,
-         input  wire [4:0]  ra3,
-         output wire        we_dm,
-         output wire [31:0] pc_current,
-         output wire [31:0] instr,
-         output wire [31:0] alu_out,
-         output wire [31:0] wd_dm,
-         output wire [31:0] rd_dm,
-         output wire [31:0] rd3,
-         output wire [31:0] soc_rd
-       );
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/01/2019 07:33:16 PM
+// Design Name: 
+// Module Name: system
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+module system (
+    input clk,
+    input rst,
+    
+    input [31:0]gpI1,
+    input [31:0]gpI2,
+    
+    output [31:0]gpO2,
+    output [31:0]gpO1
+    );
 
 // wire [31:0] DONT_USE;
+wire [31:0] pc_current;
+wire [31:0] alu_out;
+wire [31:0] instr;
+wire [31:0] soc_rd;
+wire [31:0] wd_dm;
+wire [31:0] rd_dm;
+wire we_dm;
 
 mips mips (
 `ifdef SIM
@@ -27,14 +46,14 @@ mips mips (
 `endif
        .clk            (clk),
        .rst            (rst),
-       .ra3            (ra3),
+       //.ra3            (ra3),
        .instr          (instr),
        .rd_dm          (soc_rd),
        .we_dm          (we_dm),
        .pc_current     (pc_current),
        .alu_out        (alu_out),
-       .wd_dm          (wd_dm),
-       .rd3            (rd3)
+       .wd_dm          (wd_dm)
+        //.rd3            (rd3)
      );
 
 imem imem (
@@ -83,7 +102,11 @@ dmem dmem (
     .wd(wd_dm),
     .rd(gpio_rd),
     .we(we_gpio),
-    .a(pc_current[3:0])
+    .a(pc_current[3:0]),
+    .gpO1(gpO1),
+    .gpO2(gpO2),
+    .gpI1(gpI1),
+    .gpI2(gpI2)
  );
  
  mux4 #(32) rd_mux(
@@ -92,7 +115,7 @@ dmem dmem (
     .c(fact_rd),
     .d(gpio_rd),
     .y(soc_rd),
-    .sel(rd_sel),
+    .sel(rd_sel)
  );
 
 endmodule
