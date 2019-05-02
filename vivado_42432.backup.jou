@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2018.3.1 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Wed May  1 14:16:21 2019
+# Process ID: 42432
+# Current directory: C:/Users/Brad/pipelinedMIPS32
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15976 C:\Users\Brad\pipelinedMIPS32\MIPS32.xpr
+# Log file: C:/Users/Brad/pipelinedMIPS32/vivado.log
+# Journal file: C:/Users/Brad/pipelinedMIPS32\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Brad/pipelinedMIPS32/MIPS32.xpr
+update_compile_order -fileset sources_1
