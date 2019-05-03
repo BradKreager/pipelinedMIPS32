@@ -26,7 +26,7 @@ module disp_hex_mux(
         input rst,
         
         output an,
-        output sseg
+        output reg sseg
     );
     wire [7:0]hex0_out;
     wire [7:0]hex1_out;

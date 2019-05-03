@@ -80,12 +80,42 @@ mux2 #(15)gpO2_mux(
     .sel(gpO1[1]),
     .y(hex)
 );
-disp_hex_mux hex_mux(
-    .hex(hex),
-    .clk(ls_clk),
-    .rst(rst),
-    .an(an),
-    .sseg(sseg)
-);
+
+wire [7:0]  digit0;
+wire [7:0]  digit1;
+wire [7:0]  digit2;
+wire [7:0]  digit3;
+
+hex_to_7seg hex3 (
+              .HEX                (hex[15:12]),
+              .s                  (digit3)
+            );
+
+hex_to_7seg hex2 (
+              .HEX                (hex[11:8]),
+              .s                  (digit2)
+            );
+
+hex_to_7seg hex1 (
+              .HEX                (hex[7:4]),
+              .s                  (digit1)
+            );
+
+hex_to_7seg hex0 (
+              .HEX                (hex[3:0]),
+              .s                  (digit0)
+            );
+
+led_mux led_mux (
+          .clk                (ls_clk),
+          .rst                (rst),
+          .LED3               (digit3),
+          .LED2               (digit2),
+          .LED1               (digit1),
+          .LED0               (digit0),
+          .LEDSEL             (an),
+          .LEDOUT             (sseg)
+        );
+
 
 endmodule
