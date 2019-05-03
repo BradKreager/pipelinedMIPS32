@@ -17,6 +17,10 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-14591-debian/incrSyn
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -44,7 +48,6 @@ read_verilog -library xil_defaultlib {
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comparator.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/controlunit.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/datapath.v
-  /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/disp_hex_mux.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/divider_circuit.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/dmem.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/dreg.v
@@ -59,6 +62,7 @@ read_verilog -library xil_defaultlib {
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/gpio_top.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/basys3_single_cycle_mips_validation/hex_to_7seg.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/imem.v
+  /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/basys3_single_cycle_mips_validation/led_mux.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/maindec.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v
   /home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mul_div_unit.v

@@ -56,12 +56,48 @@ module tb_system();
         rst = 1'b0;
     end
     endtask
-    integer i = 0;
+    integer errors = 0;
     initial begin
-        gpI1 = 5;
+        gpI1 = 1;
         reset;
 		#5;
         while(pc_current != 32'h40) tick;
+        if (gpO2 != 1) errors = errors + 1;
+        reset;
+        #5;
+        gpI1 = 2;
+        while(pc_current != 32'h40) tick;
+        if (gpO2 != 2) errors = errors + 1;
+                reset;
+        #5;
+        gpI1 = 3;
+        while(pc_current != 32'h40) tick;
+        if (gpO2 != 6) errors = errors + 1;
+                reset;
+        #5;
+        gpI1 = 4;
+        while(pc_current != 32'h40) tick;
+        if (gpO2 != 24) errors = errors + 1;
+                reset;
+        #5;
+        gpI1 = 5;
+        while(pc_current != 32'h40) tick;
+        if (gpO2 != 120) errors = errors + 1;
+                reset;
+        #5;
+        gpI1 = 6;
+        while(pc_current != 32'h40) tick;
+        if (gpO2 != 720) errors = errors + 1;
+                reset;
+        #5;
+        gpI1 = 7;
+        while(pc_current != 32'h40) tick;
+        if (gpO2 != 5040) errors = errors + 1;
+        reset;
+        #5;
+        gpI1 = 8;
+        while(pc_current != 32'h40) tick;
+        if (gpO2 != 40320) errors = errors + 1;
         $finish;
     end
 endmodule

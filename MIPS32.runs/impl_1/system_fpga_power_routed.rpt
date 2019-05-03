@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date             : Thu May  2 17:00:20 2019
+| Date             : Thu May  2 19:46:45 2019
 | Host             : debian running 64-bit Debian GNU/Linux 9.8 (stretch)
 | Command          : report_power -file system_fpga_power_routed.rpt -pb system_fpga_power_summary_routed.pb -rpx system_fpga_power_routed.rpx
 | Design           : system_fpga
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.072        |
+| Total On-Chip Power (W)  | 0.096        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.004        |
-| Device Static (W)        | 0.068        |
+| Dynamic (W)              | 0.024        |
+| Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.6         |
-| Junction Temperature (C) | 25.4         |
+| Max Ambient (C)          | 84.5         |
+| Junction Temperature (C) | 25.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.002 |     1215 |       --- |             --- |
-|   LUT as Logic           |     0.002 |      663 |     20800 |            3.19 |
+| Slice Logic              |     0.002 |     1306 |       --- |             --- |
+|   LUT as Logic           |     0.002 |      723 |     20800 |            3.48 |
 |   CARRY4                 |    <0.001 |       50 |      8150 |            0.61 |
 |   LUT as Distributed RAM |    <0.001 |       80 |      9600 |            0.83 |
-|   F7/F8 Muxes            |    <0.001 |       31 |     32600 |            0.10 |
-|   Register               |    <0.001 |      261 |     41600 |            0.63 |
-|   BUFG                   |    <0.001 |        4 |        32 |           12.50 |
-|   Others                 |     0.000 |       25 |       --- |             --- |
-| Signals                  |     0.001 |     1055 |       --- |             --- |
+|   F7/F8 Muxes            |    <0.001 |       34 |     32600 |            0.10 |
+|   Register               |    <0.001 |      272 |     41600 |            0.65 |
+|   BUFG                   |    <0.001 |        3 |        32 |            9.38 |
+|   Others                 |     0.000 |       24 |       --- |             --- |
+| Signals                  |     0.002 |     1142 |       --- |             --- |
 | DSPs                     |     0.000 |        2 |        90 |            2.22 |
-| I/O                      |    <0.001 |       25 |       106 |           23.58 |
-| Static Power             |     0.068 |          |           |                 |
-| Total                    |     0.072 |          |           |                 |
+| I/O                      |     0.019 |       25 |       106 |           23.58 |
+| Static Power             |     0.072 |          |           |                 |
+| Total                    |     0.096 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,9 +75,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.013 |       0.004 |      0.010 |
-| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
+| Vccint    |       1.000 |     0.015 |       0.005 |      0.010 |
+| Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
+| Vcco33    |       3.300 |     0.006 |       0.005 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -144,10 +144,10 @@ Table of Contents
 +-------------+-----------+
 | Name        | Power (W) |
 +-------------+-----------+
-| system_fpga |     0.004 |
-|   system    |     0.003 |
-|     mips    |     0.003 |
-|       dp    |     0.003 |
+| system_fpga |     0.024 |
+|   system    |     0.004 |
+|     mips    |     0.004 |
+|       dp    |     0.004 |
 +-------------+-----------+
 
 
