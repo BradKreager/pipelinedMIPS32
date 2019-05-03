@@ -16,6 +16,10 @@ set_property -dict {PACKAGE_PIN W15 IOSTANDARD LVCMOS33} [get_ports {n[4]}];  # 
 # LEDs
 set_property -dict {PACKAGE_PIN U16 IOSTANDARD LVCMOS33} [get_ports {led[4]}];  # LED 0
 set_property -dict {PACKAGE_PIN E19 IOSTANDARD LVCMOS33} [get_ports {led[3]}];  # LED 1
+set_property -dict {PACKAGE_PIN U19 IOSTANDARD LVCMOS33} [get_ports {led[2]}];  # LED 1
+set_property -dict {PACKAGE_PIN V19 IOSTANDARD LVCMOS33} [get_ports {led[1]}];  # LED 1
+set_property -dict {PACKAGE_PIN W18 IOSTANDARD LVCMOS33} [get_ports {led[0]}];  # LED 1
+
 
 # 7 segment display
 set_property -dict {PACKAGE_PIN W7 IOSTANDARD LVCMOS33} [get_ports {sseg[0]}]; # CA

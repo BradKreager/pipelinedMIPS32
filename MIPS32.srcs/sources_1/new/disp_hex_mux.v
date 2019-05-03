@@ -28,13 +28,13 @@ module disp_hex_mux(
         output an,
         output sseg
     );
-    
     wire [7:0]hex0_out;
     wire [7:0]hex1_out;
     wire [7:0]hex2_out;
     wire [7:0]hex3_out;
     reg [1:0] sel;
-    
+    assign an = sel;
+
     hex_to_7seg hex0(
         .HEX(hex[3:0]),
         .s(hex0_out)

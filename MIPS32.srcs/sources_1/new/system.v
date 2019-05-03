@@ -80,7 +80,7 @@ dmem dmem (
 
  addr_dec addr(
     .we(we_dm),
-    .a(pc_current),
+    .a(alu_out[31:0]),
     .we_gpio(we_gpio),
     .we_fact(we_fact),
     .we_mem(we_mem), 
@@ -88,7 +88,7 @@ dmem dmem (
  );
 
  fact_top fact(
-    .a(pc_current[3:2]),
+    .a(alu_out[3:2]),
     .we(we_fact),
     .wd(wd_dm[3:0]),
     .clk(clk),
@@ -102,7 +102,7 @@ dmem dmem (
     .wd(wd_dm),
     .rd(gpio_rd),
     .we(we_gpio),
-    .a(pc_current[3:0]),
+    .a(alu_out[3:2]),
     .gpO1(gpO1),
     .gpO2(gpO2),
     .gpI1(gpI1),
