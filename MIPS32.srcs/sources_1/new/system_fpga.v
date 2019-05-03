@@ -42,10 +42,8 @@ wire ls_clk;
 wire clk;
 wire [15:0]hex;
 
-assign gpO1 = {27'b0, led};
-assign gpI1 = {27'b0, n};
-
-assign gpI2 = gpO1;
+assign led = gpO1[1:0];
+assign n = gpI1[4:0];
 
 system system(
     .clk(clk),
@@ -53,7 +51,7 @@ system system(
     .gpO1(gpO1),
     .gpO2(gpO2),
     .gpI1(gpI1),
-    .gpI2(gpI2)
+    .gpI2(gpO1)
 );
 
 clk_gen clk_gen(
