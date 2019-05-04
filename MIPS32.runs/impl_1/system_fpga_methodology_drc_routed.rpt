@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Thu May  2 19:46:45 2019
-| Host         : debian running 64-bit Debian GNU/Linux 9.8 (stretch)
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Fri May  3 16:05:21 2019
+| Host         : granthaackpc running 64-bit major release  (build 9200)
 | Command      : report_methodology -file system_fpga_methodology_drc_routed.rpt -pb system_fpga_methodology_drc_routed.pb -rpx system_fpga_methodology_drc_routed.rpx
 | Design       : system_fpga
 | Device       : xc7a35tcpg236-1
@@ -278,7 +278,7 @@ Related violations: <none>
 
 LUTAR-1#1 Warning
 LUT drives async reset alert  
-LUT cell system/mips/dp/alu/q[0]_i_1__2, with 2 or more inputs, drives asynchronous preset/clear pin(s) system/fact/done_bit_dreg/q_reg[0]/CLR, system/fact/err_bit_dreg/q_reg[0]/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell system/mips/dp/pc_reg/q[0]_i_1__1, with 2 or more inputs, drives asynchronous preset/clear pin(s) system/fact/done_bit_dreg/q_reg[0]/CLR, system/fact/err_bit_dreg/q_reg[0]/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#2 Warning

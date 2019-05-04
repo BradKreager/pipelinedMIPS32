@@ -42,11 +42,24 @@ module tb_system();
     
     assign gpI2 = gpO1;
     
-    task tick; 
-    begin 
-        clk = 1'b0; #5;
-        clk = 1'b1; #5;
-    end
+    task tick; begin 
+            clk = 1'b0; #5;
+            clk = 1'b1; #5;
+        end
+    endtask
+    
+    integer exp_factorial = 0;
+    integer test;
+    integer product = 1;
+
+    task calc_factorial; begin
+            product = 1;
+            while(test > 1) begin
+                product = product * test;
+                test = test - 1;
+            end
+            exp_factorial = product;
+        end
     endtask
 
     task reset;
@@ -57,47 +70,17 @@ module tb_system();
     end
     endtask
     integer errors = 0;
+    integer n = 0;
+    integer i = 0;
     initial begin
-        gpI1 = 1;
-        reset;
-		#5;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 1) errors = errors + 1;
-        reset;
-        #5;
-        gpI1 = 2;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 2) errors = errors + 1;
-                reset;
-        #5;
-        gpI1 = 3;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 6) errors = errors + 1;
-                reset;
-        #5;
-        gpI1 = 4;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 24) errors = errors + 1;
-                reset;
-        #5;
-        gpI1 = 5;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 120) errors = errors + 1;
-                reset;
-        #5;
-        gpI1 = 6;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 720) errors = errors + 1;
-                reset;
-        #5;
-        gpI1 = 7;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 5040) errors = errors + 1;
-        reset;
-        #5;
-        gpI1 = 8;
-        while(pc_current != 32'h40) tick;
-        if (gpO2 != 40320) errors = errors + 1;
+		for(i = 1; i < 13; i = i + 1) begin
+		    reset; #5;
+		    gpI1 = i;
+		    test = i;
+		    while(pc_current != 32'h40) tick;
+		    calc_factorial;
+            if (gpO2 != exp_factorial) errors = errors + 1;
+		end
         $finish;
     end
 endmodule

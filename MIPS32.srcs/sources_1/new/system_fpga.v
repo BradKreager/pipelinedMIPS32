@@ -48,7 +48,7 @@ assign gpI1[4:0] = n;
 assign gpI2 = gpO1;
 
 system system(
-    .clk(clk),
+    .clk(ls_clk),
     .rst(btn_rst),
     .gpO1(gpO1),
     .gpO2(gpO2),
@@ -74,37 +74,37 @@ button_debouncer bd_rst(
     .button(btn_rst),
     .debounced_button(rst)
 );
-/*
+
 mux2 #(15)gpO2_mux(
     .a(gpO2[15:0]),
     .b(gpO2[31:16]),
     .sel(gpO1[1]),
     .y(hex)
 );
-*/
+
 wire [7:0]  digit0;
 wire [7:0]  digit1;
 wire [7:0]  digit2;
 wire [7:0]  digit3;
 
 hex_to_7seg hex3 (
-              .HEX                (pc_current[7:4]),
-              .s                  (digit1)
-            );
-
-hex_to_7seg hex2 (
-              .HEX                (pc_current[3:0]),
-              .s                  (digit0)
-            );
-
-hex_to_7seg hex1 (
-              .HEX                (gpO2[7:4]),
+              .HEX                (hex[15:12]),
               .s                  (digit3)
             );
 
-hex_to_7seg hex0 (
-              .HEX                (gpO2[3:0]),
+hex_to_7seg hex2 (
+              .HEX                (hex[11:8]),
               .s                  (digit2)
+            );
+
+hex_to_7seg hex1 (
+              .HEX                (hex[7:4]),
+              .s                  (digit1)
+            );
+
+hex_to_7seg hex0 (
+              .HEX                (hex[3:0]),
+              .s                  (digit0)
             );
 
 led_mux led_mux (

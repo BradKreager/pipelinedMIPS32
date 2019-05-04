@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1556851507">
-  <File Type="VDS-TIMING-PB" Name="system_fpga_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="system_fpga_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="system_fpga.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="system_fpga_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="system_fpga_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="system_fpga_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="system_fpga.vds"/>
-  <File Type="REPORTS-TCL" Name="system_fpga_reports.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1556924617">
   <File Type="PA-TCL" Name="system_fpga.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="system_fpga_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="system_fpga_reports.tcl"/>
+  <File Type="RDS-RDS" Name="system_fpga.vds"/>
+  <File Type="RDS-UTIL" Name="system_fpga_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="system_fpga_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="system_fpga.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="system_fpga_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="system_fpga_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/datapath/adder.v">
