@@ -21,16 +21,18 @@
 
 
 module tb_system();
-    reg clk;
+    reg clk = 0;
     reg rst;
     reg [31:0]gpI1;
     wire [31:0]gpI2;
     
     wire [31:0]gpO2;
     wire [31:0]gpO1;
+    wire [31:0] rT0;
     wire [31:0]pc_current;    
     
     system DUT(
+		.rT0(rT0),
         .clk(clk),
         .rst(rst),
         .gpI1(gpI1),
@@ -62,6 +64,11 @@ module tb_system();
         reset;
 		#5;
         while(pc_current != 32'h40) tick;
+
+        reset;
+		#5;
+        while(pc_current != 32'h40) tick;
+
         $finish;
     end
 endmodule

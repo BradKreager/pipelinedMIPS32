@@ -23,6 +23,7 @@ wire shift_left,
 reg carry;
 	
 wire signR;
+reg [31:0] temp;
 
 assign shift_arith = op[0];
 assign shift_left  = op[1];
@@ -33,7 +34,6 @@ assign signR       = temp[31];
 
 wire [4:0] shift_amt = (shift_var) ? b[4:0] : shamt;
 
-reg [31:0] temp;
 
 assign signA = a[31];
 assign signB = b[31];

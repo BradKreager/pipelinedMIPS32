@@ -1,8 +1,8 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Thu May  2 16:59:57 2019
-| Host         : debian running 64-bit Debian GNU/Linux 9.8 (stretch)
+| Tool Version : Vivado v.2018.3.1 (win64) Build 2489853 Tue Mar 26 04:20:25 MDT 2019
+| Date         : Fri May  3 18:21:12 2019
+| Host         : LAPTOP-8ABQCAHU running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file system_fpga_control_sets_placed.rpt
 | Design       : system_fpga
 | Device       : xc7a35t
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    16 |
-| Unused register locations in slices containing registers |    59 |
+| Number of unique control sets                            |    18 |
+| Unused register locations in slices containing registers |    58 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,12 +34,11 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      1 |            2 |
-|      2 |            1 |
-|      3 |            1 |
-|      4 |            2 |
-|     10 |            1 |
-|    16+ |            9 |
+|      1 |            3 |
+|      2 |            2 |
+|      4 |            1 |
+|      7 |            1 |
+|    16+ |           11 |
 +--------+--------------+
 
 
@@ -49,11 +48,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              35 |           11 |
-| No           | No                    | Yes                    |              39 |           20 |
-| No           | Yes                   | No                     |              65 |           42 |
+| No           | No                    | No                     |              72 |           18 |
+| No           | No                    | Yes                    |              45 |           26 |
+| No           | Yes                   | No                     |              64 |           41 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             122 |           37 |
+| Yes          | No                    | Yes                    |             145 |           55 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -61,25 +60,27 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------+----------------------------------------+----------------------------------+------------------+----------------+
-|    Clock Signal   |              Enable Signal             |         Set/Reset Signal         | Slice Load Count | Bel Load Count |
-+-------------------+----------------------------------------+----------------------------------+------------------+----------------+
-|  mips/jal_wd_sel  |                                        |                                  |                1 |              1 |
-|  n_0_334_BUFG     |                                        | system/mips/dp/pc_reg/AS[0]      |                1 |              1 |
-|  clk_BUFG         |                                        | system/mips/dp/alu/go_pulse_comb |                2 |              2 |
-| ~clk_BUFG         |                                        | bd_rst/AR[0]                     |                1 |              3 |
-|  clk_BUFG         | system/mips/dp/alu/y_reg[3]_0[0]       | bd_rst/AR[0]                     |                1 |              4 |
-| ~clk_BUFG         | system/fact/fact_acc/fsm/state         | bd_rst/AR[0]                     |                2 |              4 |
-|  clk_BUFG         | system/mips/dp/alu/E[0]                | bd_rst/AR[0]                     |                4 |             10 |
-|  n_0_334_BUFG     |                                        | mips/jal_wd_sel                  |               31 |             31 |
-|  clk_BUFG         | system/mips/dp/pc_reg/q_reg[6]_3       |                                  |                8 |             32 |
-|  clk_BUFG         | system/fact/fact_acc/fsm/done_reg_0[0] | bd_rst/AR[0]                     |                9 |             32 |
-|  clk_BUFG         | system/mips/dp/alu/q_reg[6][0]         | bd_rst/AR[0]                     |               15 |             32 |
-|  hs_clk_IBUF_BUFG |                                        | bd_rst/AR[0]                     |               10 |             33 |
-|  clk__0_BUFG      |                                        |                                  |               10 |             34 |
-|  clk_BUFG         |                                        | bd_rst/AR[0]                     |               17 |             34 |
-|  clk_BUFG         | system/fact/fact_acc/fsm/E[0]          | bd_rst/AR[0]                     |                6 |             40 |
-| ~clk_BUFG         | system/mips/dp/pc_reg/we_reg           |                                  |               12 |             96 |
-+-------------------+----------------------------------------+----------------------------------+------------------+----------------+
++-------------------+--------------------------------+--------------------------------+------------------+----------------+
+|    Clock Signal   |          Enable Signal         |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
++-------------------+--------------------------------+--------------------------------+------------------+----------------+
+|  hs_clk_IBUF_BUFG |                                | clk_gen/rst_pulse              |                1 |              1 |
+|  mips/jal_wd_sel  |                                |                                |                1 |              1 |
+|  n_0_333_BUFG     |                                | SOC/mips/dp/pc_reg/AS[0]       |                1 |              1 |
+|  clk_BUFG         |                                | SOC/mips/dp/alu/go_pulse_comb  |                2 |              2 |
+|  clk__0_BUFG      |                                | bd_rst/AR[0]                   |                1 |              2 |
+|  clk_BUFG         | SOC/mips/dp/alu/E[0]           | bd_rst/AR[0]                   |                1 |              4 |
+| ~clk_BUFG         |                                | bd_rst/AR[0]                   |                3 |              7 |
+|  hs_clk_IBUF_BUFG |                                | clk_gen/count2next[31]_i_1_n_1 |                8 |             31 |
+|  n_0_333_BUFG     |                                | mips/jal_wd_sel                |               31 |             31 |
+|  clk_BUFG         | SOC/mips/dp/alu/q_reg[6][0]    | bd_rst/AR[0]                   |               14 |             32 |
+|  clk_BUFG         | SOC/fact/fact_acc/fsm/E[0]     | bd_rst/AR[0]                   |                8 |             32 |
+|  clk_BUFG         | SOC/mips/dp/pc_reg/q_reg[6]_0  |                                |                8 |             32 |
+|  clk_BUFG         |                                | bd_rst/AR[0]                   |               20 |             34 |
+|  clk__0_BUFG      |                                |                                |                9 |             34 |
+|  hs_clk_IBUF_BUFG |                                |                                |                8 |             37 |
+|  clk_BUFG         | SOC/mips/dp/alu/q_reg[6]_0[0]  | bd_rst/AR[0]                   |               23 |             37 |
+|  clk_BUFG         | SOC/fact/fact_acc/fsm/cnt_en_w | bd_rst/AR[0]                   |                9 |             40 |
+|  clk_BUFG         | SOC/mips/dp/pc_reg/we_reg      |                                |               12 |             96 |
++-------------------+--------------------------------+--------------------------------+------------------+----------------+
 
 

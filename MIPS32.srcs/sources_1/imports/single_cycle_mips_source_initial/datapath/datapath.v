@@ -4,6 +4,7 @@ module datapath (
 `ifdef SIM
          output wire [31:0] rd1,
          output wire [31:0] alu_pb_sim,
+         output wire [31:0] rT0,
 `endif
          input  wire        clk,
          input  wire        rst,
@@ -63,7 +64,8 @@ wire [31:0] rd2_out;
 
 
 `ifdef SIM
-	assign alu_pb_sim = alu_pb;
+
+assign alu_pb_sim = alu_pb;
 `endif
 
 
@@ -159,7 +161,11 @@ mux2 #(5) rf_wa_mux (
        .y              (rf_wa)
      );
 
+
 regfile rf (
+`ifdef SIM
+          .rT0(rT0),
+`endif
           .clk            (clk),
           .we             (we_reg),
           .ra1            (instr[25:21]),

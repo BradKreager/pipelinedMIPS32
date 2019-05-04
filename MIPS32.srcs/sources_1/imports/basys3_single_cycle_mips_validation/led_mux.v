@@ -14,15 +14,20 @@ module led_mux (
 
     assign {LEDSEL, LEDOUT} = led_ctrl;
     
-    always @ (posedge clk) index <= (rst) ? 2'b0 : (index + 2'd1);
-    
-    always @ (index, LED0, LED1, LED2, LED3) begin
+    always @ (posedge clk, posedge rst)
+	begin
+		if(rst) index <= 2'd0;
+		else index <= (index + 2'd1);
+	end
+
+    // always @ (index, LED0, LED1, LED2, LED3) begin
+    always @ (index) begin
         case (index)
-               2'd0: led_ctrl <= {4'b1110, LED0};
-               2'd1: led_ctrl <= {4'b1101, LED1};
-               2'd2: led_ctrl <= {4'b1011, LED2};
-               2'd3: led_ctrl <= {4'b0111, LED3};
-            default: led_ctrl <= {4'b1111, 8'hFF};
+               2'd0: led_ctrl = {4'b1110, LED0};
+               2'd1: led_ctrl = {4'b1101, LED1};
+               2'd2: led_ctrl = {4'b1011, LED2};
+               2'd3: led_ctrl = {4'b0111, LED3};
+            default: led_ctrl = {4'b1111, 8'hFF};
         endcase
     end
     

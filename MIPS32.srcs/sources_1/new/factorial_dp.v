@@ -38,15 +38,19 @@ module factorial_dp(
         output [31:0]factorial_out
     );
     
-    assign err = (n > 8'd12 ? 1 : 0) | n == 0;
     
     wire [7:0] dwn_cnt_out_w;
+    wire [7:0] input_value;
     wire [31:0] mult_out_w;
     wire [31:0] prod_mux_out_w;
     wire [31:0] prod_reg_out_w;
     
+	assign input_value = (n == 8'b0) ? 8'd1 : n;
+
+    assign err = (n > 8'd12 ? 1'b1 : 1'b0);
+
     updown dwn_cnt(
-        .d(n),
+        .d(input_value),
         .ud(1'b0),
         .ce(cnt_en),
         .ld(cnt_ld),

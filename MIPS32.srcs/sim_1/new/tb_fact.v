@@ -67,7 +67,7 @@ module tb_fact();
     integer errors = 0;
     
     integer exp_factorial = 32'd0;
-    integer test_factorial = 4'd3;
+    integer test_factorial = 4'd0;
     integer product = 1;
     integer i = 4'd1;
     
@@ -138,7 +138,7 @@ module tb_fact();
     initial begin
         reset;
         tick;
-        test_factorial = 4'd3;
+        test_factorial = 4'd0;
         test_full_cycle;
         $display("Testing data retention in factorial module...");
         tick;

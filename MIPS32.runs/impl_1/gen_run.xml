@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1556841523">
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BG-DRC" Name="system_fpga.drc"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1556932833">
+  <File Type="BITSTR-BMM" Name="system_fpga_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="system_fpga_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="system_fpga_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="system_fpga_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="system_fpga.tcl"/>
+  <File Type="OPT-TIMING" Name="system_fpga_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="system_fpga_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="system_fpga_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="system_fpga_reports.tcl"/>
+  <File Type="OPT-DRC" Name="system_fpga_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="system_fpga.hwdef"/>
+  <File Type="PWROPT-DCP" Name="system_fpga_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="system_fpga_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="system_fpga_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="system_fpga_placed.dcp"/>
+  <File Type="PLACE-IO" Name="system_fpga_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="system_fpga_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="system_fpga_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="system_fpga_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="system_fpga_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="system_fpga_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="system_fpga_incremental_reuse_pre_placed.rpt"/>
   <File Type="BG-BGN" Name="system_fpga.bgn"/>
-  <File Type="BITSTR-SYSDEF" Name="system_fpga.sysdef"/>
+  <File Type="PLACE-TIMING" Name="system_fpga_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="system_fpga_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="system_fpga.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="system_fpga_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="system_fpga_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="system_fpga_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="system_fpga.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="system_fpga_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="system_fpga_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="system_fpga_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="system_fpga_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="system_fpga_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="system_fpga_drc_routed.pb"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="system_fpga.ltx"/>
+  <File Type="ROUTE-DRC-RPX" Name="system_fpga_drc_routed.rpx"/>
   <File Type="BITSTR-MMI" Name="system_fpga.mmi"/>
-  <File Type="BITSTR-BMM" Name="system_fpga_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="system_fpga.nky"/>
-  <File Type="BITSTR-RBT" Name="system_fpga.rbt"/>
-  <File Type="BITSTR-MSK" Name="system_fpga.msk"/>
-  <File Type="BG-BIN" Name="system_fpga.bin"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="system_fpga_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="system_fpga_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-SYSDEF" Name="system_fpga.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="system_fpga_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="system_fpga_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="system_fpga_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="system_fpga_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="system_fpga_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="system_fpga_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="system_fpga_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="system_fpga_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="system_fpga_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="system_fpga_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="system_fpga_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="system_fpga_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="system_fpga_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="system_fpga_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="system_fpga_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="system_fpga_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="system_fpga_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="system_fpga_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="system_fpga_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="system_fpga.bit"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="system_fpga_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="system_fpga_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="system_fpga_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="system_fpga.rbt"/>
+  <File Type="BITSTR-NKY" Name="system_fpga.nky"/>
+  <File Type="BG-DRC" Name="system_fpga.drc"/>
   <File Type="RDI-RDI" Name="system_fpga.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="system_fpga_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="system_fpga_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="system_fpga_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="system_fpga_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="system_fpga_postroute_physopt.dcp"/>
-  <File Type="ROUTE-BUS-SKEW" Name="system_fpga_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="system_fpga_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="system_fpga_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="system_fpga_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="system_fpga_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="system_fpga_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="system_fpga_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="system_fpga_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="system_fpga_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="system_fpga_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="system_fpga_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="system_fpga_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="system_fpga_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="system_fpga_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="system_fpga_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="system_fpga_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="system_fpga_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="system_fpga_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="system_fpga_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="system_fpga_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="system_fpga_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="system_fpga_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="system_fpga_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="system_fpga_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="system_fpga_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="system_fpga_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="system_fpga_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="system_fpga_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="system_fpga_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="system_fpga_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="system_fpga_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="system_fpga_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="system_fpga_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="system_fpga_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="system_fpga_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="system_fpga_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="system_fpga_pwropt.dcp"/>
-  <File Type="OPT-TIMING" Name="system_fpga_timing_summary_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="system_fpga.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="system_fpga_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="system_fpga_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="system_fpga_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="system_fpga_timing_summary_init.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="system_fpga_bus_skew_routed.rpx"/>
-  <File Type="REPORTS-TCL" Name="system_fpga_reports.tcl"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="system_fpga_bus_skew_routed.pb"/>
-  <File Type="PA-TCL" Name="system_fpga.tcl"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/datapath/adder.v">
@@ -159,13 +159,6 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab5/lab5_processor_design_1/single_cycle_mips_source_initial/datapath/datapath.v"/>
         <Attr Name="ImportTime" Val="1532846674"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/disp_hex_mux.v">
-      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -281,6 +274,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/basys3_single_cycle_mips_validation/led_mux.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/Lab 6 Materials/basys3_single_cycle_mips_validation/led_mux.v"/>
+        <Attr Name="ImportTime" Val="1532847256"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/control_unit/maindec.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab5/lab5_processor_design_1/single_cycle_mips_source_initial/control_unit/maindec.v"/>
@@ -356,16 +358,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/basys3_single_cycle_mips_validation/led_mux.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/Lab 6 Materials/basys3_single_cycle_mips_validation/led_mux.v"/>
-        <Attr Name="ImportTime" Val="1532847256"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/mips/mips_top.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -386,11 +378,11 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/single_cycle_mips_source_initial/memory/memfile.dat">
+    <File Path="$PSRCDIR/sources_1/new/disp_hex_mux.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../OneDrive/Documents/CMPE 140/lab7/mip_processor/mip_processor.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/memfile.dat"/>
-        <Attr Name="ImportTime" Val="1555618551"/>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>

@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/ghaack/school/pipelinedMIPS32/MIPS32.srcs/constrs_1/new/system_fpga.xdc rfile:../../../MIPS32.srcs/constrs_1/new/system_fpga.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/Brad/pipelinedMIPS32/MIPS32.srcs/constrs_1/new/system_fpga.xdc rfile:../../../MIPS32.srcs/constrs_1/new/system_fpga.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN W5 IOSTANDARD LVCMOS33}           [get_ports {hs_clk}];
 set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]

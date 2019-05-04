@@ -5,6 +5,7 @@ module mips (
          output wire [31:0] rd1,
          output wire [2:0] a_ctrl,
          output wire [31:0] alu_pb,
+         output wire [31:0] rT0,
 `endif
          input  wire        clk,
          input  wire        rst,
@@ -44,6 +45,7 @@ datapath dp (
 `ifdef SIM
            .rd1 (rd1),
            .alu_pb_sim (alu_pb),
+		.rT0(rT0),
 `endif
            .clk                    (clk),
            .rst                    (rst),

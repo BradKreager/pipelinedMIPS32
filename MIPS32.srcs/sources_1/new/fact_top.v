@@ -57,7 +57,7 @@ module fact_top(
     
     //The actual factorial accelerator
     fact fact_acc(
-        .n({4'b0000, n}), //The factorial module I built takes an 8 bit input. Pad the other bits
+        .n({4'b0, n}), //The factorial module I built takes an 8 bit input. Pad the other bits
         .go(go_pulse),
         .clk(clk),
         .rst(rst),
@@ -66,7 +66,7 @@ module fact_top(
         .factorial_out(nf)
     );
     
-    //The dreg stores the number to be factorialed
+    //The dreg stores the number to be factored
     dreg_sync_rst_en#(4) input_dreg(
         .clk(clk),
         .rst(rst),

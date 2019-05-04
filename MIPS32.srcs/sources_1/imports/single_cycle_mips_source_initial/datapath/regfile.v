@@ -6,6 +6,7 @@ module regfile (
          output wire [31:0] rA0,
          output wire [31:0] rA1,
          output wire [31:0] rA2,
+         output wire [31:0] rA3,
 
          output wire [31:0] rT0,
          output wire [31:0] rT1,
@@ -59,7 +60,7 @@ initial
     rf[29] = 32'h100; // Initialze $sp
   end
 
-always @ (negedge clk)
+always @ (posedge clk)
   begin
     if (we)
       rf[wa] <= wd;
