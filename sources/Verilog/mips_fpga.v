@@ -3,7 +3,7 @@ module mips_fpga (
          input  wire       rst,
          input  wire       button,
          input  wire [8:0] switches,
-         output wire       we_dm,
+         output wire       we_dmM,
          output wire [3:0] LEDSEL,
          output wire [7:0] LEDOUT
        );
@@ -42,7 +42,7 @@ mips_top mips_top (
            .clk                (clk_pb),
            .rst                (rst),
            .ra3                (switches[4:0]),
-           .we_dm              (we_dm),
+           .we_dmM             (we_dmM),
            .pc_current         (pc_current),
            .instr              (instr),
            .alu_out            (alu_out),

@@ -22,7 +22,7 @@ set_property -dict {PACKAGE_PIN W13 IOSTANDARD LVCMOS33} [get_ports {switches[7]
 set_property -dict {PACKAGE_PIN V2  IOSTANDARD LVCMOS33} [get_ports {switches[8]}];  # Switch 8
 
 # LEDs
-set_property -dict {PACKAGE_PIN U16 IOSTANDARD LVCMOS33} [get_ports {we_dm}];  # LED 0
+set_property -dict {PACKAGE_PIN U16 IOSTANDARD LVCMOS33} [get_ports {we_dmM}];  # LED 0
   
 # 7 segment display
 set_property -dict {PACKAGE_PIN W7 IOSTANDARD LVCMOS33} [get_ports {LEDOUT[0]}]; # CA

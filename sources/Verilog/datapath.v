@@ -341,8 +341,8 @@ module datapath (
 	assign muldiv_enE = muldiv_op;
 
 	/* --- Pipeline (control signals) --- */
-	wire [17:0] csSigsE;
-	wire [17:0]	   csSigsD;
+	wire [18:0] csSigsE;
+	wire [18:0]	   csSigsD;
 
 	assign csSigsD =
 		{
@@ -608,25 +608,26 @@ module datapath (
 		mul_div(
 			.inA                    (rd1_outE),
 			.inB                    (rd2_outE),
-			.clk					(clk),
-			.en				        (muldiv_enE_qual),
+			// .clk					(clk),
 			.mul0_div1_sel          (mul0_div1_selE),
 			.outH                   (muldiv_highE),
 			.outL                   (muldiv_lowE)
 		);
 
 
-		dreg high_reg (
+		dreg_sync_rst_en high_reg (
 			.clk            (clk),
 			.rst            (rst),
+			.en				        (muldiv_enE_qual),
 			.d              (muldiv_highE),
 			.q              (muldiv_high_regE)
 		);
 
 
-		dreg low_reg (
+		dreg_sync_rst_en low_reg (
 			.clk            (clk),
 			.rst            (rst),
+			.en				        (muldiv_enE_qual),
 			.d              (muldiv_lowE),
 			.q              (muldiv_low_regE)
 		);
