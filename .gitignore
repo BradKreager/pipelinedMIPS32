@@ -1,0 +1,7 @@
+/**
+!/sources/
+!/sources/**/*
+!/project.tcl
+!/build_project.lnk
+!/README.md
+!/.gitignore
