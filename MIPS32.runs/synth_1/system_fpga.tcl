@@ -23,52 +23,50 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.cache/wt [current_project]
-set_property parent.project_path C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.xpr [current_project]
+set_property webtalk.parent_dir /home/ghaack/MIPS32/MIPS32.cache/wt [current_project]
+set_property parent.project_path /home/ghaack/MIPS32/MIPS32.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.cache/ip [current_project]
+set_property ip_output_repo /home/ghaack/MIPS32/MIPS32.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_mem {
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/memfile.dat
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system_prog.mem
-}
+read_mem /home/ghaack/MIPS32/MIPS32.src/sources_1/new/memfile.dat
 read_verilog -library xil_defaultlib {
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/adder.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/addr_dec.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/alu.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/auxdec.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/basys3_single_cycle_mips_validation/button_debouncer.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/basys3_single_cycle_mips_validation/clk_gen.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comb_multiplier.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/combinational_multiplier.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/comparator.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/controlunit.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/datapath.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/divider_circuit.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/dmem.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/dreg.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/dreg_en.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/ext_unit.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/fact_ad.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/fact_top.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_dp.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/factorial_fsm.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/gpio_ad.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/gpio_top.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/basys3_single_cycle_mips_validation/hex_to_7seg.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/memory/imem.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/basys3_single_cycle_mips_validation/led_mux.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/control_unit/maindec.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/mips/mips.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mul_div_unit.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/mux2.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/mux4.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/imports/single_cycle_mips_source_initial/datapath/regfile.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/up_down_counter.v
-  C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/sources_1/new/system_fpga.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/adder.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/addr_dec.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/alu.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/auxdec.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/button_debouncer.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/clk_gen.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/comb_multiplier.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/combinational_multiplier.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/comparator.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/controlunit.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/datapath.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/divider_circuit.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/dmem.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/dreg.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/dreg_en.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/dreg_sync_rst.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/ext_unit.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/fact_ad.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/fact_top.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/factorial.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/factorial_dp.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/factorial_fsm.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/gpio_ad.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/gpio_top.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/hex_to_7seg.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/imem.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/led_mux.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/maindec.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/mips.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/mul_div_unit.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/mux2.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/mux4.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/regfile.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/system.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/up_down_counter.v
+  /home/ghaack/MIPS32/MIPS32.src/sources_1/new/system_fpga.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -78,8 +76,8 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/constrs_1/new/system_fpga.xdc
-set_property used_in_implementation false [get_files C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/constrs_1/new/system_fpga.xdc]
+read_xdc /home/ghaack/MIPS32/MIPS32.src/constrs_1/new/system_fpga.xdc
+set_property used_in_implementation false [get_files /home/ghaack/MIPS32/MIPS32.src/constrs_1/new/system_fpga.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

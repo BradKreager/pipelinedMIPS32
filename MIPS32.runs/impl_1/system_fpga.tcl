@@ -69,12 +69,12 @@ set rc [catch {
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.cache/wt [current_project]
-  set_property parent.project_path C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.xpr [current_project]
-  set_property ip_output_repo C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/ghaack/MIPS32/MIPS32.cache/wt [current_project]
+  set_property parent.project_path /home/ghaack/MIPS32/MIPS32.xpr [current_project]
+  set_property ip_output_repo /home/ghaack/MIPS32/MIPS32.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.runs/synth_1/system_fpga.dcp
-  read_xdc C:/Users/granthaack/Documents/school/pipelinedMIPS32/MIPS32.srcs/constrs_1/new/system_fpga.xdc
+  add_files -quiet /home/ghaack/MIPS32/MIPS32.runs/synth_1/system_fpga.dcp
+  read_xdc /home/ghaack/MIPS32/MIPS32.src/constrs_1/new/system_fpga.xdc
   link_design -top system_fpga -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]
