@@ -4,8 +4,6 @@ module mul_div_unit(
          input [31:0] inA,
          input [31:0] inB,
          input mul0_div1_sel,
-         input en,
-		 input clk,
          output [31:0] outH,
          output [31:0] outL
        );
@@ -20,8 +18,6 @@ combinational_multiplier
   MUL (
     .mul_pa			(inA),
     .mul_pb			(inB),
-	.clk	        (clk),
-    .en            (en),
     .mul_high		(mul_high),
     .mul_low		(mul_low)
   );
@@ -30,7 +26,6 @@ divider_circuit
   DIV (
     .inA           (inA),
     .inB           (inB),
-    .en            (en),
     .outQ          (outQ),
     .outR          (outR)
   );

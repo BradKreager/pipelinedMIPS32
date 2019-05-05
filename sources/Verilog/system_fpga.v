@@ -1,30 +1,10 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
-// Create Date: 05/01/2019 07:55:52 PM
-// Design Name:
-// Module Name: system_fpga
-// Project Name:
-// Target Devices:
-// Tool Versions:
-// Description:
-//
-// Dependencies:
-//
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-//
-//////////////////////////////////////////////////////////////////////////////////
 
 module system_fpga(
 	input btn_rst,
 	input btn_clk,
 	input hs_clk,
 	input [4:0]n,
-
 	output [3:0]an,
 	output [7:0]sseg,
 	output [4:0]led
@@ -48,7 +28,7 @@ module system_fpga(
 	system SOC(
 		.pc_current         (pc),
 		.clk                (clk),
-		.rst                (btn_rst),
+		.rst                (rst),
 		.gpO1               (gpO1),
 		.gpO2               (gpO2),
 		.gpI1               (gpI1),
@@ -65,6 +45,12 @@ module system_fpga(
 		.clk                (ls_clk),
 		.button             (btn_clk),
 		.debounced_button   (clk)
+	);
+
+	button_debouncer bd_rst(
+		.clk                (ls_clk),
+		.button             (btn_rst),
+		.debounced_button   (rst)
 	);
 
 	mux2 #(16)gpO2_mux(
@@ -101,7 +87,7 @@ module system_fpga(
 
 	led_mux led_mux (
 		.clk                (ls_clk),
-		.rst                (btn_rst),
+		.rst                (rst),
 		.LED3               (digit3),
 		.LED2               (digit2),
 		.LED1               (digit1),
