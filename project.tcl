@@ -23,52 +23,6 @@
 # 2. The following source(s) files that were local or imported into the original project.
 #    (Please see the '$orig_proj_dir' and '$origin_dir' variable setting below at the start of the script)
 #
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/adder.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/alu.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/auxdec.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/button_debouncer.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/clk_gen.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/combinational_multiplier.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/controlunit.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/datapath.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/divider_circuit.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/dmem.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/dreg_sync_rst.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/ext_unit.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/hex_to_7seg.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/imem.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/led_mux.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/maindec.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/mips.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/mips_top.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/mul_div_unit.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/mux2.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/regfile.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/mips_fpga.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/dreg.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/comb_multiplier.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/comparator.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/fact_ad.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/factorial.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/factorial_dp.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/factorial_fsm.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/mux4.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/up_down_counter.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/fact_top.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/dff_pre_clr.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/gpio_ad.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/Verilog/gpio_top.v"
-#    "C:/Users/Brad/pipelinedMIPS32/MIPS32/MIPS32.srcs/sources_1/imports/sources/memfile.dat"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_mips_top.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_auxdec.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_gpio.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_dp.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_muldiv.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_cu.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_fact.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_alu.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_ext_unit.v"
-#    "C:/Users/Brad/pipelinedMIPS32/sources/Simulation/tb_maindec.v"
 #
 # 3. The following remote source files that were added to the original project:-
 #
@@ -227,6 +181,9 @@ set files [list \
  [file normalize "${origin_dir}/sources/Verilog/dff_pre_clr.v"]\
  [file normalize "${origin_dir}/sources/Verilog/gpio_ad.v"]\
  [file normalize "${origin_dir}/sources/Verilog/gpio_top.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/system.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/system_fpga.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/addr_dec.v"]\
  [file normalize "${origin_dir}/sources/memfile.dat"]\
 ]
 #set imported_files [import_files -fileset sources_1 $files]
@@ -243,7 +200,7 @@ set_property -name "file_type" -value "Data Files" -objects $file_obj
 
 # Set 'sources_1' fileset properties
 set obj [get_filesets sources_1]
-set_property -name "top" -value "mips_fpga" -objects $obj
+set_property -name "top" -value "system_fpga" -objects $obj
 set_property -name "top_auto_set" -value "0" -objects $obj
 
 # Create 'constrs_1' fileset (if not found)
