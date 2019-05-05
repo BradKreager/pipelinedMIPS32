@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 
-module tb_mips_top;
+module tb_mips_top();
 
 reg         clk = 0;
 reg         rst = 0;
 reg  [4:0]  ra3 = 0;
-wire        we_dm;
+wire        we_dmM;
 wire [31:0] pc_current;
 wire [31:0] alu_out;
 wire [31:0] wd_dm;
@@ -60,7 +60,6 @@ wire [4:0] rf_waW;
 wire [31:0] alu_outE;
 wire [31:0] alu_outM;
 wire [31:0] alu_outW;
-wire [31:0] wd_dmM;
 wire [31:0] hilo_mux_outM;
 wire [31:0] hilo_mux_outE;
 wire [31:0] pc_plus8M;
@@ -131,7 +130,7 @@ mips_top DUT (
            .hilo_read_done              (hilo_read_done),
            .clk            (clk),
            .rst            (rst),
-           .we_dm          (we_dm),
+           .we_dmM          (we_dmM),
            .ra3            (ra3),
            .pc_current     (pc_current),
            .instr          (instr),
@@ -188,7 +187,6 @@ mips_top DUT (
            .alu_outE                    (alu_outE),
            .alu_outM                    (alu_outM),
            .alu_outW                    (alu_outW),
-           .wd_dmM                      (wd_dmM),
            .hilo_mux_outM               (hilo_mux_outM),
            .hilo_mux_outE               (hilo_mux_outE),
            .pc_plus8M                   (pc_plus8M),
@@ -254,7 +252,7 @@ initial
     reset;
     #5;
     ra3 = 5'd29;
-    while(pc_current != 32'h74)
+    while(pc_current != 32'h40)
       tick;
     ra3 = 5'd16;
     tick;

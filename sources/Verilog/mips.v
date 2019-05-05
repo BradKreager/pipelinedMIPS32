@@ -117,7 +117,6 @@ module mips (
          output wire [31:0] alu_outE,
          output wire [31:0] alu_outM,
          output wire [31:0] alu_outW,
-         output wire [31:0] wd_dmM,
          output wire [31:0] hilo_mux_outM,
          output wire [31:0] hilo_mux_outE,
          output wire [31:0] pc_plus8M,
@@ -141,7 +140,7 @@ module mips (
          input  wire [4:0]  ra3,
          input  wire [31:0] instr,
          input  wire [31:0] rd_dm,
-         output wire        we_dm,
+         output wire        we_dmM,
          output wire [31:0] pc_current,
          output wire [31:0] alu_out,
          output wire [31:0] wd_dm,
@@ -150,6 +149,7 @@ module mips (
        );
 
 
+wire        we_dm;
 wire       branch;
 wire       jump;
 wire       we_reg;
@@ -229,7 +229,6 @@ datapath dp (
            .alu_outE                    (alu_outE),
            .alu_outM                    (alu_outM),
            .alu_outW                    (alu_outW),
-           .wd_dmM                      (wd_dmM),
            .hilo_mux_outM               (hilo_mux_outM),
            .hilo_mux_outE               (hilo_mux_outE),
            .pc_plus8M                   (pc_plus8M),
@@ -295,7 +294,9 @@ datapath dp (
            .arith_op                (arith_op),
            .instrD                 (instrD),
            .muldiv_op              (muldiv_op),
-           .arith_overflow         (arith_overflow)
+           .arith_overflow         (arith_overflow),
+		   .we_dm                  (we_dm),
+           .we_dmM                 (we_dmM)
 
          );
 

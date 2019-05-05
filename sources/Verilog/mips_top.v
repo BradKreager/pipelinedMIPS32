@@ -119,7 +119,6 @@ module mips_top (
          output wire [31:0] alu_outE,
          output wire [31:0] alu_outM,
          output wire [31:0] alu_outW,
-         output wire [31:0] wd_dmM,
          output wire [31:0] hilo_mux_outM,
          output wire [31:0] hilo_mux_outE,
          output wire [31:0] pc_plus8M,
@@ -133,7 +132,7 @@ module mips_top (
          input  wire        clk,
          input  wire        rst,
          input  wire [4:0]  ra3,
-         output wire        we_dm,
+         output wire        we_dmM,
          output wire [31:0] pc_current,
          output wire [31:0] instr,
          output wire [31:0] alu_out,
@@ -198,7 +197,6 @@ mips mips (
        .alu_outE                    (alu_outE),
        .alu_outM                    (alu_outM),
        .alu_outW                    (alu_outW),
-       .wd_dmM                      (wd_dmM),
        .hilo_mux_outM               (hilo_mux_outM),
        .hilo_mux_outE               (hilo_mux_outE),
        .pc_plus8M                   (pc_plus8M),
@@ -244,7 +242,7 @@ mips mips (
        .ra3            (ra3),
        .instr          (instr),
        .rd_dm          (rd_dm),
-       .we_dm          (we_dm),
+       .we_dmM          (we_dmM),
        .pc_current     (pc_current),
        .alu_out        (alu_out),
        .wd_dm          (wd_dm),
@@ -258,7 +256,7 @@ imem imem (
 
 dmem dmem (
        .clk            (clk),
-       .we             (we_dm),
+       .we             (we_dmM),
        .a              (alu_out[7:2]),
        .d              (wd_dm),
        .q              (rd_dm)
