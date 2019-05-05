@@ -2,6 +2,6 @@
 !/sources/
 !/sources/**/*
 !/project.tcl
-!/build_project.lnk
+!/build_project.bat
 !/README.md
 !/.gitignore
