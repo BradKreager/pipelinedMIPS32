@@ -6,9 +6,18 @@ module clk_gen (
     );
 
     integer count1, count2;
+	reg rst_pulse, pulsemem1, pulsemem2;//, pulsemem3;
+
+	always @ (posedge clk100MHz) begin
+		pulsemem1 <= rst;
+		pulsemem2 <= pulsemem1;
+		// pulsemem3 <= pulsemem2;
+		rst_pulse <= ~pulsemem2 & pulsemem1;
+	end
+	
 
     always @ (posedge clk100MHz) begin
-        if (rst) begin
+        if (rst_pulse) begin
             count1 = 0;
             count2 = 0;
             clk_5KHz = 0;
