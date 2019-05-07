@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 02/03/2019 04:26:15 AM
-// Design Name: 
-// Module Name: factorial_fsm
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 module factorial_fsm(
@@ -37,7 +18,12 @@ module factorial_fsm(
     output reg done
     );
     
-    reg[1:0] state = 0;
+	localparam
+	INIT = 2'd0,
+	LOAD = 2'd1,
+	WAIT = 2'd2;
+
+    reg[1:0] state = 2'd0;
     
     always @(negedge clk, posedge rst) begin
         if(rst) begin
@@ -52,7 +38,7 @@ module factorial_fsm(
         else begin
             case(state)
             //State 0: Start state
-            0: begin
+            INIT: begin
                 //Initialize all the signals
                 done = 1;
                 prod_mux_sel = 0;
@@ -76,18 +62,16 @@ module factorial_fsm(
                         //Remove the done signal
                         done = 0;             
                         //Increase the state
-                        state = 1;
+                        state = LOAD;
                     end
-                    else begin
                     //Do nothing on error
-                        end
                 end
                 else begin
                     //Do nothing if go isn't asserted
                 end
             end
             //State 1: Load state
-            1: begin
+            LOAD: begin
                 //Stop loading to the down counter
                 cnt_ld = 0;
                 //Decrement the down counter
@@ -97,24 +81,24 @@ module factorial_fsm(
                 //Load the product register with the product
                 prod_reg_ld = 1;
                 //Increase the state
-                state = 2;
+                state = WAIT;
             end
             
             //State 2: Wait state
-            2: begin
+            WAIT: begin
                 //Don't decrement the down counter again
                 cnt_en = 0;
                 //Stop loading the product reguster
                 prod_reg_ld = 0;
                 //If down count > 1, loop again
                 if(a_gt_b) begin
-                    state = 1;
+                    state = LOAD;
                 end
                 //Otherwise, mux out the result and activate the done signal
                 else begin
                     out_mux_sel = 1;
                     done = 1;
-                    state = 0;
+                    state = INIT;
                 end
             end
         endcase
