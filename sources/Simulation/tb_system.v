@@ -253,13 +253,36 @@ module tb_system();
       end
     endtask
     
+    integer errors = 0;
+    integer exp_factorial = 0;
+    integer test;
+    integer product = 1;
+
+    task calc_factorial;
+        begin
+            product = 1;
+            while(test > 1) begin
+                product = product * test;
+                test = test - 1;
+            end
+            exp_factorial = product;
+        end
+    endtask
+    
     integer i = 0;
     initial begin
-        gpI1 = 4;
         reset;
 		#5;
 		tick;
-        while(pc_current != 32'h5c) tick;
+		for(i = 2; i < 13; i = i + 1) begin
+		  gpI1 = i;
+		  test = i;
+		  reset;
+		  tick;
+		  while(pc_current != 32'h5c) tick;
+		  calc_factorial;
+		  if(gpO2 != exp_factorial) errors = errors + 1;
+		end
         $finish;
     end
 endmodule
