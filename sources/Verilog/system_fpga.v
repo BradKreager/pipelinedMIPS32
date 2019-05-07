@@ -4,6 +4,7 @@ module system_fpga(
 	input btn_rst,
 	input btn_clk,
 	input hs_clk,
+	input display_sw,
 	input [4:0]n,
 	output [3:0]an,
 	output [7:0]sseg,
@@ -28,7 +29,7 @@ module system_fpga(
 	system SOC(
 		.pc_current         (pc),
 		.clk                (clk),
-		.rst                (rst),
+		.rst                (btn_rst),
 		.gpO1               (gpO1),
 		.gpO2               (gpO2),
 		.gpI1               (gpI1),
@@ -37,7 +38,7 @@ module system_fpga(
 
 	clk_gen clk_gen(
 		.clk100MHz          (hs_clk),
-		.rst                (rst),
+		.rst                (btn_rst),
 		.clk_5KHz           (ls_clk)
 	);
 
@@ -45,12 +46,6 @@ module system_fpga(
 		.clk                (ls_clk),
 		.button             (btn_clk),
 		.debounced_button   (clk)
-	);
-
-	button_debouncer bd_rst(
-		.clk                (ls_clk),
-		.button             (btn_rst),
-		.debounced_button   (rst)
 	);
 
 	mux2 #(16)gpO2_mux(
@@ -65,29 +60,62 @@ module system_fpga(
 	wire [7:0]  digit2;
 	wire [7:0]  digit3;
 
+	wire [3:0]hex0_mux_out;
+	mux2 #(4)hex0_mux(
+	   .a(hex[3:0]),
+	   .b(pc[3:0]),
+	   .sel(display_sw),
+	   .y(hex0_mux_out)
+	);
+	
+	wire [3:0]hex1_mux_out;
+	mux2 #(4)hex1_mux(
+	   .a(hex[7:4]),
+	   .b(pc[7:4]),
+	   .sel(display_sw),
+	   .y(hex1_mux_out)
+	);
+	
+	wire [3:0]hex2_mux_out;
+	mux2 #(4)hex2_mux(
+	   .a(hex[11:8]),
+	   .b(pc[11:8]),
+	   .sel(display_sw),
+	   .y(hex2_mux_out)
+	);
+    
+    wire [3:0]hex3_mux_out;
+	mux2 #(4)hex3_mux(
+	   .a(hex[15:12]),
+	   .b(pc[15:12]),
+	   .sel(display_sw),
+	   .y(hex3_mux_out)
+	);
+	
 	hex_to_7seg hex3 (
-		.HEX                (hex[15:12]),
+		.HEX                (hex3_mux_out),
 		.s                  (digit3)
 	);
 
 	hex_to_7seg hex2 (
-		.HEX                (hex[11:8]),
+		.HEX                (hex2_mux_out),
 		.s                  (digit2)
 	);
 
 	hex_to_7seg hex1 (
-		.HEX                (hex[7:4]),
+		.HEX                (hex1_mux_out),
 		.s                  (digit1)
 	);
 
 	hex_to_7seg hex0 (
-		.HEX                (hex[3:0]),
+		.HEX                (hex0_mux_out),
 		.s                  (digit0)
 	);
+	
 
-	led_mux led_mux (
+    led_mux led_mux (
 		.clk                (ls_clk),
-		.rst                (rst),
+		.rst                (btn_rst),
 		.LED3               (digit3),
 		.LED2               (digit2),
 		.LED1               (digit1),
@@ -95,6 +123,4 @@ module system_fpga(
 		.LEDSEL             (an),
 		.LEDOUT             (sseg)
 	);
-
-
 endmodule

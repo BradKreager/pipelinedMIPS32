@@ -12,6 +12,7 @@ set_property -dict {PACKAGE_PIN V16 IOSTANDARD LVCMOS33} [get_ports {n[1]}];  # 
 set_property -dict {PACKAGE_PIN W16 IOSTANDARD LVCMOS33} [get_ports {n[2]}];  # Switch 2
 set_property -dict {PACKAGE_PIN W17 IOSTANDARD LVCMOS33} [get_ports {n[3]}];  # Switch 3
 set_property -dict {PACKAGE_PIN W15 IOSTANDARD LVCMOS33} [get_ports {n[4]}];  # Switch 4
+set_property -dict {PACKAGE_PIN R2 IOSTANDARD LVCMOS33} [get_ports {display_sw}];  # Switch 15
 
 # LEDs
 set_property -dict {PACKAGE_PIN U16 IOSTANDARD LVCMOS33} [get_ports {led[4]}];  # LED 0

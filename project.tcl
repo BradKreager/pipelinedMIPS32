@@ -244,6 +244,7 @@ set files [list \
  [file normalize "${origin_dir}/sources/Simulation/tb_alu.v"]\
  [file normalize "${origin_dir}/sources/Simulation/tb_ext_unit.v"]\
  [file normalize "${origin_dir}/sources/Simulation/tb_maindec.v"]\
+ [file normalize "${origin_dir}/sources/Simulation/tb_system.v"]\
 ]
 # set imported_files [import_files -fileset sim_1 $files]
 set add_files [add_files -fileset sim_1 $files]

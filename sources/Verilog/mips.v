@@ -133,7 +133,6 @@ module mips (
          output wire [31:0] instrD,
          output wire        arith_overflow,
 
-
 `endif
          input  wire        clk,
          input  wire        rst,
