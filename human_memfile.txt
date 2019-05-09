@@ -1,0 +1,24 @@
+main: addi $t0, $0, 0x0F # $t0 = 0x0F
+addi $t1, $0, 1 # $t1 = 1
+fact: lw $t2, 0x0900($0) # read switches
+nop
+nop
+and $t3, $t2, $t0 # get input data n
+nop
+nop
+sw $t3, 0x0800($0) # write input data n
+sw $t1, 0x0804($0) # write control Go bit
+poll: lw $t5, 0x0808($0) # read status Done bit
+nop
+nop
+nop
+nop
+beq $t5, $0, poll # wait until Done == 1
+lw $t5, 0x080C($0) # read result data nf
+nop
+nop
+sw $t5, 0x090C($0) # display result nf
+nop
+nop
+nop
+nop
