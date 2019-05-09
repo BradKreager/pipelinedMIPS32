@@ -10,7 +10,7 @@ module dreg_sync_rst_en # (parameter WIDTH = 32) (
 
     always @ (posedge clk, posedge rst) begin
         if      (rst)   q <= 0;
-        else if (en)    q <= d;
+        else if (~en)    q <= d;
         else            q <= q;
     end
 endmodule

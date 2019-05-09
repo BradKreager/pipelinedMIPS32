@@ -16,8 +16,6 @@ module datapath (
 		output wire		   alu_src_immE,
 
 		output wire		   we_regE,
-		output wire		   we_regM,
-		output wire		   we_regW,
 
 
 		output wire		   hilo_mov_opE,
@@ -48,8 +46,6 @@ module datapath (
 		output wire		   dm_load_opM,
 		output wire		   dm_load_opW,
 
-		output wire		   jal_wd_selE,
-		output wire		   jal_wd_selM,
 		output wire		   jal_wd_selW,
 
 		output wire			mul0_div1_selW,
@@ -69,15 +65,12 @@ module datapath (
 		output wire [31:0] rd2_outE,
 		output wire [31:0] sext_immE,
 
-		output wire [4:0] rsE,
 		output wire [4:0] rtE,
 		output wire [4:0] rdE,
 		output wire [4:0] shamtE,
 
 
 		output wire [4:0] rf_waE,
-		output wire [4:0] rf_waM,
-		output wire [4:0] rf_waW,
 
 		output wire [31:0] alu_outE,
 		output wire [31:0] alu_outM,
@@ -143,7 +136,7 @@ module datapath (
 	input  wire    	   mul0_div1_sel,
 
 	input  wire 	   dm_load_op,
-	input  wire       muldiv_op,
+	input  wire         muldiv_op,
 
 	input  wire 	   wr_ra_jal,
 	input  wire 	   jal_wd_sel,
@@ -153,6 +146,27 @@ module datapath (
 
 	input  wire        slt_op,
 	input  wire        arith_op,
+	
+	input  wire        forwardAE,
+	input  wire        forwardBE,
+	input  wire        forwardAD,
+	input  wire        forwardBD,
+	input  wire        stallF,
+	input  wire        stallD,
+	input  wire        flushE,
+
+	output wire [4:0]  rsD,
+	output wire [4:0]  rtD,
+	output wire [4:0]  rdD,
+	output wire [4:0]  rsE,
+	output wire [4:0]  rtE,
+	output wire		   we_regM,
+	output wire		   we_regW,
+	output wire [4:0]  rf_waM,
+	output wire [4:0]  rf_waW,
+	output wire		   jal_wd_selE,
+	output wire		   jal_wd_selM,
+
 
 	input  wire [2:0]  alu_ctrl,
 	input  wire [4:0]  ra3,
@@ -171,6 +185,9 @@ module datapath (
 	output wire [31:0] rd3
 );
 
+	assign rsD = instr[25:21];
+	assign rtD = instr[20:16];
+	assign rdD = instr[15:11];
 
 	assign alu_out = alu_outM;
 	wire [4:0]  rf_wa;
@@ -190,10 +207,11 @@ module datapath (
 
 	wire [31:0] rd1_out;
 	wire [31:0] rd2_out;
+	wire [31:0] rd1_out_cmp;
+	wire [31:0] rd2_out_cmp;
 
 
 	`ifdef SIM
-
 		assign alu_pb_sim = alu_pb;
 	`endif
 
@@ -260,8 +278,6 @@ module datapath (
 		wire		   dm_load_opM;
 		wire		   dm_load_opW;
 
-		wire		   jal_wd_selE;
-		wire		   jal_wd_selM;
 		wire		   jal_wd_selW;
 
 		wire			mul0_div1_selW;
@@ -281,15 +297,11 @@ module datapath (
 		rd2_outE,
 		sext_immE;
 
-		wire [4:0] rsE,
-		rtE,
-		rdE,
+		wire [4:0] rdE,
 		shamtE;
 
 
-		wire [4:0] rf_waE,
-		rf_waM,
-		rf_waW;
+		wire [4:0] rf_waE;
 
 		wire [31:0] alu_outE,
 		alu_outM,
@@ -309,7 +321,7 @@ module datapath (
 
 	assign rd1 = rd1_out;
 
-	assign equalsD = (rd1_out == rd2_out) ? 1'b1 : 1'b0;
+	assign equalsD = (rd1_out_cmp == rd2_out_cmp) ? 1'b1 : 1'b0;
 	assign pc_src = branch & equalsD;
 	assign ba = {sext_imm[29:0], 2'b00};
 	assign jta = {pc_plus4D[31:28], instrD[25:0], 2'b00};
@@ -387,7 +399,7 @@ module datapath (
 	}
 		= csSigsE;
 
-	dreg_sync_rst #(19)csRegE (
+	dreg_sync_rst #(19)csRegE(
 		.clk            (clk),
 		.rst            (rst),
 		.d              (csSigsD),
@@ -397,7 +409,7 @@ module datapath (
 
 
 
-	dreg_sync_rst #(5) csRegM (
+	dreg_sync_rst #(5) csRegM(
 		.clk            (clk),
 		.rst            (1'b0),
 		.d              ({we_regE, hilo_mov_opE, dm_load_opE, jal_wd_selE, we_dmE}),
@@ -408,7 +420,7 @@ module datapath (
 
 
 
-	dreg_sync_rst #(4)csRegW (
+	dreg_sync_rst #(4)csRegW(
 		.clk            (clk),
 		.rst            (1'b0),
 		.d              ({we_regM, hilo_mov_opM, dm_load_opM, jal_wd_selM}),
@@ -418,34 +430,36 @@ module datapath (
 
 
 	/* --- Pipeline (data) --- */
-	dreg_sync_rst #(32) dpRegF(
+	dreg_en #(32) dpRegF(
 		.clk            (clk),
 		.rst            (rst),
+		.en             (stallF),
 		.d              (pc_pre),
 		.q              (pc_current)
 	);
 
 
 
-	dreg_sync_rst #(64)dpRegD(
+	dreg_en #(64)dpRegD(
 		.clk            (clk),
-		.rst            (rst),
+		.rst            (pc_src),
+		.en             (stallD),
 		.d              ({instr, pc_plus4}),
 		.q              ({instrD, pc_plus4D})
 	);
 
-
-	dreg_sync_rst #(148)dpRegE (
+	dreg_en #(148)dpRegE(
 		.clk            (clk),
-		.rst            (rst),
-		.d              ({instrD[25:21], instrD[20:16], instrD[15:11], sext_imm, rd1_out, rd2_out, instrD[10:6], pc_plus4D}),
+		.rst            (flushE),
+		.en             (1'b0),
+		.d              ({rsD, rtD, rdD, sext_imm, rd1_out, rd2_out, instrD[10:6], pc_plus4D}),
 		.q              ({rsE, rtE, rdE, sext_immE, rd1_outE, rd2_outE, shamtE, pc_plus4E})
 	);
 
 
 
 
-	dreg_sync_rst #(133)dpRegM (
+	dreg_sync_rst #(133)dpRegM(
 		.clk            (clk),
 		.rst            (1'b0),
 		.d              ({alu_outE, rd2_outE, rf_waE, hilo_mux_outE, pc_plus8E}),
@@ -453,7 +467,7 @@ module datapath (
 	);
 
 
-	dreg_sync_rst #(133)dpRegW (
+	dreg_sync_rst #(133)dpRegW(
 		.clk            (clk),
 		.rst            (1'b0),
 		.d              ({rd_dm, alu_outM, rf_waM, hilo_mux_outM, pc_plus8M}),
@@ -467,19 +481,19 @@ module datapath (
 
 	/* --- PC Logic --- */
 
-	adder pc_plus_4 (
+	adder pc_plus_4(
 		.a              (pc_current),
 		.b              (32'd4),
 		.y              (pc_plus4)
 	);
 
-	adder pc_plus_br (
+	adder pc_plus_br(
 		.a              (pc_plus4D),
 		.b              (ba),
 		.y              (bta)
 	);
 
-	mux2 #(32) pc_src_mux (
+	mux2 #(32) pc_src_mux(
 		.sel            (pc_src),
 		.a              (pc_next),
 		.b              (bta),
@@ -487,14 +501,14 @@ module datapath (
 	);
 
 
-	mux2 #(32) pc_jmp_mux (
+	mux2 #(32) pc_jmp_mux(
 		.sel            (jump),
 		.a              (jr_pc_next),
 		.b              (jta),
 		.y              (pc_next)
 	);
 
-	mux2 #(32) jr_mux (
+	mux2 #(32) jr_mux(
 		.sel            (jr_sel),
 		.a              (pc_plus4),
 		.b              (rd1_out),
@@ -507,20 +521,20 @@ module datapath (
 
 
 	/* --- RF Logic --- */
-	mux2 #(5) instr_wa_mux (
+	mux2 #(5) instr_wa_mux(
 		.sel            (wr_ra_instrE),
 		.a              (rdE),
 		.b              (rtE),
 		.y              (instr_wa)
 	);
 
-	mux2 #(5) jal_wa_mux (
+	mux2 #(5) jal_wa_mux(
 		.sel            (wr_ra_jalE),
 		.a              (5'd0),
 		.b              (5'd31),
 		.y              (jal_wa)
 	);
-	mux2 #(5) rf_wa_mux (
+	mux2 #(5) rf_wa_mux(
 		.sel            (jumpE),
 		.a              (instr_wa),
 		.b              (jal_wa),
@@ -572,7 +586,21 @@ module datapath (
 		.rd3            (rd3)
 	);
 
-		ext_unit ext_imm (
+		mux2 #(32) rd1_out_fwd_haz(
+			.sel            (forwardAD),
+			.a              (rd2_out),
+			.b              (alu_outM),
+			.y              (rd1_out_cmp)
+		);
+
+		mux2 #(32) rd2_out_fwd_haz(
+			.sel            (forwardBD),
+			.a              (rd2_out),
+			.b              (alu_outM),
+			.y              (rd2_out_cmp)
+		);
+
+		ext_unit ext_imm(
 			.ext_sign0_zero1  (signExt0_zeroExt1),
 			.a                (instrD[15:0]),
 			.y                (sext_imm)
@@ -581,8 +609,25 @@ module datapath (
 		// --- ALU Logic --- //
 
 		// TODO: add forwarding to alu inputs and wd_dm
+		mux4 #(32) alu_pa_fwd_haz(
+			.sel            (forwardAE),
+			.a              (rd1_outE),
+			.b              (wd_rfW),
+			.c              (alu_outM),
+			.d              (32'd0),
+			.y              (alu_pb)
+		);
 
-		mux2 #(32) alu_pb_mux (
+		mux4 #(32) alu_pb_fwd_haz(
+			.sel            (forwardBE),
+			.a              (rd2_outE),
+			.b              (wd_rfW),
+			.c              (alu_outM),
+			.d              (32'd0),
+			.y              (alu_pb)
+		);
+
+		mux2 #(32) alu_pb_mux(
 			.sel            (alu_src_immE),
 			.a              (rd2_outE),
 			.b              (sext_immE),
@@ -590,7 +635,7 @@ module datapath (
 		);
 
 
-		alu alu (
+		alu alu(
 			.op                (alu_ctrlE),
 			.a                 (rd1_outE),
 			.b                 (alu_pb),
@@ -614,7 +659,7 @@ module datapath (
 		);
 
 
-		dreg_sync_rst_en high_reg (
+		dreg_sync_rst_en high_reg(
 			.clk            (clk),
 			.rst            (rst),
 			.en				        (muldiv_enE_qual),
@@ -623,7 +668,7 @@ module datapath (
 		);
 
 
-		dreg_sync_rst_en low_reg (
+		dreg_sync_rst_en low_reg(
 			.clk            (clk),
 			.rst            (rst),
 			.en				        (muldiv_enE_qual),
