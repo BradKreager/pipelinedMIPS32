@@ -63,22 +63,27 @@ module regfile (
 		rf[29] = 32'h100; // Initialze $sp
 	end
 
-	always @ (negedge clk)
-	begin
-		raddr1 <= ra1;
-		raddr2 <= ra2;
-		raddr3 <= ra3;
-	end
+	//always @ (negedge clk)
+	//begin
+		//raddr1 <= ra1;
+		//raddr2 <= ra2;
+		//raddr3 <= ra3;
+	//end
 
-	always @ (posedge clk)
+	always @ (negedge clk)
+	//always @ (posedge clk)
 	begin
 		if (we)
 			rf[wa] <= wd;
 	end
 
-	assign rd1 = (raddr1 == 0) ? 0 : rf[raddr1];
-	assign rd2 = (raddr2 == 0) ? 0 : rf[raddr2];
-	assign rd3 = (raddr3 == 0) ? 0 : rf[raddr3];
+	//assign rd1 = (raddr1 == 0) ? 0 : rf[raddr1];
+	//assign rd2 = (raddr2 == 0) ? 0 : rf[raddr2];
+	//assign rd3 = (raddr3 == 0) ? 0 : rf[raddr3];
+
+	assign rd1 = (ra1 == 0) ? 0 : rf[ra1];
+	assign rd2 = (ra2 == 0) ? 0 : rf[ra2];
+	assign rd3 = (ra3 == 0) ? 0 : rf[ra3];
 
 	`ifdef SIM
 

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module dreg_sync_rst_en # (parameter WIDTH = 32) (
+module dreg_en #(parameter WIDTH = 32)(
         input  wire             clk,
         input  wire             rst,
         input  wire             en,

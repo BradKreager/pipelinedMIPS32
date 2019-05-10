@@ -2,6 +2,8 @@
 
 module mips (
 	`ifdef SIM
+		output  wire        lwstall,
+		output  wire        branchstall,
 		output wire  forwardAE,
 		output wire  forwardBE,
 		output wire  forwardAD,
@@ -14,8 +16,8 @@ module mips (
 		output wire [4:0] rdD,
 		output wire [4:0] rsE,
 		output wire [4:0] rtE,
-		output wire  we_output wireM,
-		output wire  we_output wireW,
+		output wire  we_regM,
+		output wire  we_regW,
 		output wire [4:0] rf_waM,
 		output wire [4:0] rf_waW,
 		output wire  jal_wd_selM,
@@ -71,8 +73,6 @@ module mips (
 		output wire		   alu_src_immE,
 
 		output wire		   we_regE,
-		output wire		   we_regM,
-		output wire		   we_regW,
 
 
 		output wire		   hilo_mov_opE,
@@ -122,7 +122,6 @@ module mips (
 		output wire [31:0] rd2_outE,
 		output wire [31:0] sext_immE,
 
-		output wire [4:0] rsE,
 		output wire [4:0] rdE,
 		output wire [4:0] shamtE,
 
@@ -199,8 +198,9 @@ module mips (
 		wire [4:0] rdD;
 		wire [4:0] rsE;
 		wire [4:0] rtE;
-		wire  we_wireM;
-		wire  we_wireW;
+		wire  we_regM;
+		wire  we_regW;
+		wire [4:0] rf_waE;
 		wire [4:0] rf_waM;
 		wire [4:0] rf_waW;
 		wire  jal_wd_selE;
@@ -208,7 +208,6 @@ module mips (
 		wire  branch;
 		wire [31:0] instrD;
 		wire arith_overflow;
-		wire		   we_regM;
 		wire		   we_regW;
 	`endif
 
@@ -223,9 +222,7 @@ module mips (
 			.branchE                     (branchE),
 			.jumpE                       (jumpE),
 			.alu_src_immE                (alu_src_immE),
-			.we_regE                     (we_regE),
-			.we_regM                     (we_regM),
-			.we_regW                     (we_regW),
+			//.we_regM                     (we_regM),
 			.hilo_mov_opE                (hilo_mov_opE),
 			.hilo_mov_opM                (hilo_mov_opM),
 			.hilo_mov_opW                (hilo_mov_opW),
@@ -253,13 +250,8 @@ module mips (
 			.rd1_outE                    (rd1_outE),
 			.rd2_outE                    (rd2_outE),
 			.sext_immE                   (sext_immE),
-			.rsE                         (rsE),
-			.rtE                         (rtE),
 			.rdE                         (rdE),
 			.shamtE                      (shamtE),
-			.rf_waE                      (rf_waE),
-			.rf_waM                      (rf_waM),
-			.rf_waW                      (rf_waW),
 			.alu_outE                    (alu_outE),
 			.alu_outM                    (alu_outM),
 			.alu_outW                    (alu_outW),
@@ -343,8 +335,10 @@ module mips (
 		.rdD                  (rdD),
 		.rsE                  (rsE),
 		.rtE                  (rtE),
+		.we_regE                     (we_regE),
 		.we_regM              (we_regM),
 		.we_regW              (we_regW),
+		.rf_waE                      (rf_waE),
 		.rf_waM               (rf_waM),
 		.rf_waW               (rf_waW),
 		.jal_wd_selM                 (jal_wd_selM),
@@ -377,6 +371,10 @@ module mips (
 
 
 		hazard_monitor HAZ_UNIT(
+`ifdef SIM
+	.lwstall       (lwstall),
+	.branchstall   (branchstall),
+`endif
 			.forwardAE            (forwardAE),
 			.forwardBE            (forwardBE),
 			.forwardAD            (forwardAD),
@@ -389,8 +387,10 @@ module mips (
 			.rdD                  (rdD),
 			.rsE                  (rsE),
 			.rtE                  (rtE),
+			.we_regE              (we_regE),
 			.we_regM              (we_regM),
 			.we_regW              (we_regW),
+			.rf_waE                      (rf_waE),
 			.rf_waM               (rf_waM),
 			.rf_waW               (rf_waW),
 			.jal_wd_selM                 (jal_wd_selM),

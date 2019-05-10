@@ -4,119 +4,118 @@
  
 module system (
 `ifdef SIM
-	output wire  forwardAE;
-	output wire  forwardBE;
-	output wire  forwardAD;
-	output wire  forwardBD;
-	output wire  stallF;
-	output wire  stallD;
-	output wire  flushE;
-	output wire [4:0] rsD;
-	output wire [4:0] rtD;
-	output wire [4:0] rdD;
-	output wire [4:0] rsE;
-	output wire [4:0] rtE;
-	output wire  we_wireM;
-	output wire  we_wireW;
-	output wire [4:0] rf_waM;
-	output wire [4:0] rf_waW;
-	output wire  jal_wd_selM;
-	output wire  jal_wd_selE;
-	output wire  branch;
-	output wire  muldiv_enE;
-	output wire  muldiv_enE_qual;
-	output wire  hilo_read_done;
-	output wire [31:0] rAT;
-	output wire [31:0] rV0;
-	output wire [31:0] rV1;
-	output wire [31:0] rA0;
-	output wire [31:0] rA1;
-	output wire [31:0] rA2;
-	output wire [31:0] rT0;
-	output wire [31:0] rT1;
-	output wire [31:0] rT2;
-	output wire [31:0] rT3;
-	output wire [31:0] rT4;
-	output wire [31:0] rT5;
-	output wire [31:0] rT6;
-	output wire [31:0] rT7;
-	output wire [31:0] rS0;
-	output wire [31:0] rS1;
-	output wire [31:0] rS2;
-	output wire [31:0] rS3;
-	output wire [31:0] rS4;
-	output wire [31:0] rS5;
-	output wire [31:0] rS6;
-	output wire [31:0] rS7;
-	output wire [31:0] rT8;
-	output wire [31:0] rT9;
-	output wire [31:0] rK0;
-	output wire [31:0] rK1;
-	output wire [31:0] rGP;
-	output wire [31:0] rSP;
-	output wire [31:0] rFP;
-	output wire [31:0] rRA;
-	output wire [31:0] wd_rfW;
-	output wire  branchE;
-	output wire  jumpE;
-	output wire  alu_src_immE;
-	output wire  we_regE;
-	output wire  we_regM;
-	output wire  we_regW;
-	output wire  hilo_mov_opE;
-	output wire  hilo_mov_opM;
-	output wire  hilo_mov_opW;
-	output wire  hi0_lo1_selE;
-	output wire  mul0_div1_selE;
-	output wire  mul0_div1_selM;
-	output wire  dm_load_opE;
-	output wire  wr_ra_jalE;
-	output wire  jr_selE;
-	output wire  wr_ra_instrE;
-	output wire  slt_opE;
-	output wire  arith_opE;
-	output wire [2:0] alu_ctrlE;
-	output wire  signExt0_zeroExt1E;
-	output wire  dm_load_opM;
-	output wire  dm_load_opW;
-	output wire  jal_wd_selW;
-	output wire  mul0_div1_selW;
-	output wire [31:0] pc_plus4D;
-	output wire [31:0] pc_plus4E;
-	output wire  zero;
-	output wire  equalsD;
-	output wire [31:0] wd_hiloW;
-	output wire [31:0] wd_alu_dmW;
-	output wire [31:0] rd1_outE;
-	output wire [31:0] rd2_outE;
-	output wire [31:0] sext_immE;
-	output wire [4:0] rsE;
-	output wire [4:0] rdE;
-	output wire [4:0] shamtE;
-	output wire [4:0] rf_waE;
-	output wire [31:0] alu_outE;
-	output wire [31:0] alu_outM;
-	output wire [31:0] alu_outW;
-	output wire [31:0] hilo_mux_outM;
-	output wire [31:0] hilo_mux_outE;
-	output wire [31:0] pc_plus8M;
-	output wire [31:0] pc_plus8W;
-	output wire [31:0] rd_dmW;
-	output wire [31:0] hilo_mux_outW;
-	output wire [31:0] pc_plus8E;
-	output wire [31:0] alu_pb;
-	output wire [2:0] a_ctrl;
-	output wire [31:0] rd1;
-	output wire [31:0] instrD;
-	output wire  arith_overflow;
-	output wire [31:0] instr;
-	output wire [31:0] alu_out;
-	output wire [31:0] soc_rd;
-	output wire [31:0] wd_dm;
-	output wire  we_dmM;
-	output wire [31:0] rd_dm;
-	output wire [4:0] ra3;
-	output wire [31:0] rd3;
+	output  wire        lwstall,
+	output  wire        branchstall,
+	output wire  forwardAE,
+	output wire  forwardBE,
+	output wire  forwardAD,
+	output wire  forwardBD,
+	output wire  stallF,
+	output wire  stallD,
+	output wire  flushE,
+	output wire [4:0] rsD,
+	output wire [4:0] rtD,
+	output wire [4:0] rdD,
+	output wire [4:0] rsE,
+	output wire [4:0] rtE,
+	output wire  we_regM,
+	output wire  we_regW,
+	output wire [4:0] rf_waM,
+	output wire [4:0] rf_waW,
+	output wire  jal_wd_selM,
+	output wire  jal_wd_selE,
+	output wire  branch,
+	output wire  muldiv_enE,
+	output wire  muldiv_enE_qual,
+	output wire  hilo_read_done,
+	output wire [31:0] rAT,
+	output wire [31:0] rV0,
+	output wire [31:0] rV1,
+	output wire [31:0] rA0,
+	output wire [31:0] rA1,
+	output wire [31:0] rA2,
+	output wire [31:0] rT0,
+	output wire [31:0] rT1,
+	output wire [31:0] rT2,
+	output wire [31:0] rT3,
+	output wire [31:0] rT4,
+	output wire [31:0] rT5,
+	output wire [31:0] rT6,
+	output wire [31:0] rT7,
+	output wire [31:0] rS0,
+	output wire [31:0] rS1,
+	output wire [31:0] rS2,
+	output wire [31:0] rS3,
+	output wire [31:0] rS4,
+	output wire [31:0] rS5,
+	output wire [31:0] rS6,
+	output wire [31:0] rS7,
+	output wire [31:0] rT8,
+	output wire [31:0] rT9,
+	output wire [31:0] rK0,
+	output wire [31:0] rK1,
+	output wire [31:0] rGP,
+	output wire [31:0] rSP,
+	output wire [31:0] rFP,
+	output wire [31:0] rRA,
+	output wire [31:0] wd_rfW,
+	output wire  branchE,
+	output wire  jumpE,
+	output wire  alu_src_immE,
+	output wire  we_regE,
+	output wire  hilo_mov_opE,
+	output wire  hilo_mov_opM,
+	output wire  hilo_mov_opW,
+	output wire  hi0_lo1_selE,
+	output wire  mul0_div1_selE,
+	output wire  mul0_div1_selM,
+	output wire  dm_load_opE,
+	output wire  wr_ra_jalE,
+	output wire  jr_selE,
+	output wire  wr_ra_instrE,
+	output wire  slt_opE,
+	output wire  arith_opE,
+	output wire [2:0] alu_ctrlE,
+	output wire  signExt0_zeroExt1E,
+	output wire  dm_load_opM,
+	output wire  dm_load_opW,
+	output wire  jal_wd_selW,
+	output wire  mul0_div1_selW,
+	output wire [31:0] pc_plus4D,
+	output wire [31:0] pc_plus4E,
+	output wire  zero,
+	output wire  equalsD,
+	output wire [31:0] wd_hiloW,
+	output wire [31:0] wd_alu_dmW,
+	output wire [31:0] rd1_outE,
+	output wire [31:0] rd2_outE,
+	output wire [31:0] sext_immE,
+	output wire [4:0] rdE,
+	output wire [4:0] shamtE,
+	output wire [4:0] rf_waE,
+	output wire [31:0] alu_outE,
+	output wire [31:0] alu_outM,
+	output wire [31:0] alu_outW,
+	output wire [31:0] hilo_mux_outM,
+	output wire [31:0] hilo_mux_outE,
+	output wire [31:0] pc_plus8M,
+	output wire [31:0] pc_plus8W,
+	output wire [31:0] rd_dmW,
+	output wire [31:0] hilo_mux_outW,
+	output wire [31:0] pc_plus8E,
+	output wire [31:0] alu_pb,
+	output wire [2:0] a_ctrl,
+	output wire [31:0] rd1,
+	output wire [31:0] instrD,
+	output wire  arith_overflow,
+	output wire [31:0] instr,
+	output wire [31:0] alu_out,
+	output wire [31:0] soc_rd,
+	output wire [31:0] wd_dm,
+	output wire  we_dmM,
+	output wire [31:0] rd_dm,
+	output wire [4:0] ra3,
+	output wire [31:0] rd3,
 `endif
 input clk,
 input rst,
@@ -161,6 +160,8 @@ output [31:0]pc_current
 
 mips MIPS(
 	`ifdef SIM
+		.lwstall       (lwstall),
+		.branchstall   (branchstall),
 		.forwardAE                   (forwardAE),
 		.forwardBE                   (forwardBE),
 		.forwardAD                   (forwardAD),
@@ -171,10 +172,9 @@ mips MIPS(
 		.rsD                         (rsD),
 		.rtD                         (rtD),
 		.rdD                         (rdD),
-		.rsE                         (rsE),
 		.rtE                         (rtE),
-		.we_wireM                    (we_wireM),
-		.we_wireW                    (we_wireW),
+		.we_regM                    (we_regM),
+		.we_regW                    (we_regW),
 		.rf_waM                      (rf_waM),
 		.rf_waW                      (rf_waW),
 		.jal_wd_selM                 (jal_wd_selM),
@@ -218,8 +218,6 @@ mips MIPS(
 		.jumpE                       (jumpE),
 		.alu_src_immE                (alu_src_immE),
 		.we_regE                     (we_regE),
-		.we_regM                     (we_regM),
-		.we_regW                     (we_regW),
 		.hilo_mov_opE                (hilo_mov_opE),
 		.hilo_mov_opM                (hilo_mov_opM),
 		.hilo_mov_opW                (hilo_mov_opW),
@@ -276,7 +274,7 @@ mips MIPS(
 	.we_dmM                      (we_dmM),
 	.pc_current                  (pc_current),
 	.alu_out                     (alu_out),
-	.wd_dm                       (wd_dm),
+	.wd_dm                       (wd_dm)
 );
 	imem imem (
 		.a              (pc_current[7:2]),

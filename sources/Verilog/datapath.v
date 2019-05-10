@@ -65,7 +65,6 @@ module datapath (
 		output wire [31:0] rd2_outE,
 		output wire [31:0] sext_immE,
 
-		output wire [4:0] rtE,
 		output wire [4:0] rdE,
 		output wire [4:0] shamtE,
 
@@ -399,9 +398,10 @@ module datapath (
 	}
 		= csSigsE;
 
-	dreg_sync_rst #(19)csRegE(
+	dreg_en #(19)csRegE(
 		.clk            (clk),
-		.rst            (rst),
+		.rst            (flushE | rst),
+		.en             (1'b0),
 		.d              (csSigsD),
 		.q              (csSigsE)
 	);
@@ -411,7 +411,7 @@ module datapath (
 
 	dreg_sync_rst #(5) csRegM(
 		.clk            (clk),
-		.rst            (1'b0),
+		.rst            (rst),
 		.d              ({we_regE, hilo_mov_opE, dm_load_opE, jal_wd_selE, we_dmE}),
 		.q              ({we_regM, hilo_mov_opM, dm_load_opM, jal_wd_selM, we_dmM})
 	);
@@ -422,7 +422,7 @@ module datapath (
 
 	dreg_sync_rst #(4)csRegW(
 		.clk            (clk),
-		.rst            (1'b0),
+		.rst            (rst),
 		.d              ({we_regM, hilo_mov_opM, dm_load_opM, jal_wd_selM}),
 		.q              ({we_regW, hilo_mov_opW, dm_load_opW, jal_wd_selW})
 	);
@@ -442,7 +442,7 @@ module datapath (
 
 	dreg_en #(64)dpRegD(
 		.clk            (clk),
-		.rst            (pc_src),
+		.rst            (pc_src | rst),
 		.en             (stallD),
 		.d              ({instr, pc_plus4}),
 		.q              ({instrD, pc_plus4D})
@@ -450,7 +450,7 @@ module datapath (
 
 	dreg_en #(148)dpRegE(
 		.clk            (clk),
-		.rst            (flushE),
+		.rst            (flushE | rst),
 		.en             (1'b0),
 		.d              ({rsD, rtD, rdD, sext_imm, rd1_out, rd2_out, instrD[10:6], pc_plus4D}),
 		.q              ({rsE, rtE, rdE, sext_immE, rd1_outE, rd2_outE, shamtE, pc_plus4E})
@@ -461,7 +461,7 @@ module datapath (
 
 	dreg_sync_rst #(133)dpRegM(
 		.clk            (clk),
-		.rst            (1'b0),
+		.rst            (rst),
 		.d              ({alu_outE, rd2_outE, rf_waE, hilo_mux_outE, pc_plus8E}),
 		.q              ({alu_outM, wd_dmM, rf_waM, hilo_mux_outM, pc_plus8M})
 	);
@@ -469,7 +469,7 @@ module datapath (
 
 	dreg_sync_rst #(133)dpRegW(
 		.clk            (clk),
-		.rst            (1'b0),
+		.rst            (rst),
 		.d              ({rd_dm, alu_outM, rf_waM, hilo_mux_outM, pc_plus8M}),
 		.q              ({rd_dmW, alu_outW, rf_waW, hilo_mux_outW, pc_plus8W})
 	);
@@ -659,7 +659,7 @@ module datapath (
 		);
 
 
-		dreg_sync_rst_en high_reg(
+		dreg_en high_reg(
 			.clk            (clk),
 			.rst            (rst),
 			.en				        (muldiv_enE_qual),
@@ -668,7 +668,7 @@ module datapath (
 		);
 
 
-		dreg_sync_rst_en low_reg(
+		dreg_en low_reg(
 			.clk            (clk),
 			.rst            (rst),
 			.en				        (muldiv_enE_qual),
