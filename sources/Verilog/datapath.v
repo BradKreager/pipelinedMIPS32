@@ -1,130 +1,7 @@
 `timescale 1ns / 1ps
 
 module datapath (
-	`ifdef SIM
-		output wire muldiv_enE,
-		output reg muldiv_enE_qual,
-		output reg hilo_read_done,
 
-		output wire [31:0] alu_src_a,
-		output wire [31:0] alu_src_b,
-		
-		output wire [31:0] wd_rfW,
-		output wire [31:0] rd1,
-		output wire [31:0] alu_pb_sim,
-
-		output wire		   branchE,
-
-		output wire		   jumpE,
-
-		output wire		   alu_src_immE,
-
-		output wire		   we_regE,
-
-
-		output wire		   hilo_mov_opE,
-		output wire		   hilo_mov_opM,
-		output wire		   hilo_mov_opW,
-
-		output wire		   hi0_lo1_selE,
-
-		output wire		   mul0_div1_selE,
-		output wire		   mul0_div1_selM,
-
-
-		output wire		   wr_ra_jalE,
-
-		output wire		   jr_selE,
-
-		output wire		   wr_ra_instrE,
-
-		output wire		   slt_opE,
-
-		output wire		   arith_opE,
-
-		output wire [2:0]	   alu_ctrlE,
-
-		output wire		   signExt0_zeroExt1E,
-
-		output wire		   dm_load_opW,
-
-		output wire		   jal_wd_selW,
-
-		output wire			mul0_div1_selW,
-
-		// datapath
-		output wire [31:0]		pc_plus4D,
-		output wire [31:0] pc_plus4E,
-
-		output wire        zero,
-		output wire	    equalsD,
-
-		output wire [31:0]		wd_hiloW,
-
-		output wire [31:0]		wd_alu_dmW,
-
-		output wire [31:0] rd1_outE,
-		output wire [31:0] rd2_outE,
-		output wire [31:0] sext_immE,
-
-		output wire [4:0] rdE,
-		output wire [4:0] shamtE,
-
-
-		output wire [4:0] rf_waE,
-
-		output wire [31:0] alu_outE,
-		output wire [31:0] alu_outM,
-		output wire [31:0] alu_outW,
-		output wire [31:0] wd_dmM,
-		output wire [31:0] hilo_mux_outM,
-		output wire [31:0] hilo_mux_outE,
-		output wire [31:0] pc_plus8M,
-		output wire [31:0] pc_plus8W,
-
-		output wire [31:0] rd_dmW,
-		output wire [31:0] hilo_mux_outW,
-
-		output wire [31:0] pc_plus8E,
-
-		output wire [31:0] rAT,
-		output wire [31:0] rV0,
-		output wire [31:0] rV1,
-		output wire [31:0] rA0,
-		output wire [31:0] rA1,
-		output wire [31:0] rA2,
-
-		output wire [31:0] rT0,
-		output wire [31:0] rT1,
-		output wire [31:0] rT2,
-		output wire [31:0] rT3,
-		output wire [31:0] rT4,
-		output wire [31:0] rT5,
-		output wire [31:0] rT6,
-		output wire [31:0] rT7,
-
-		output wire [31:0] rS0,
-		output wire [31:0] rS1,
-		output wire [31:0] rS2,
-		output wire [31:0] rS3,
-		output wire [31:0] rS4,
-		output wire [31:0] rS5,
-		output wire [31:0] rS6,
-		output wire [31:0] rS7,
-
-		output wire [31:0] rT8,
-		output wire [31:0] rT9,
-
-		output wire [31:0] rK0,
-		output wire [31:0] rK1,
-
-		output wire [31:0] rGP,
-		output wire [31:0] rSP,
-		output wire [31:0] rFP,
-		output wire [31:0] rRA,
-
-		output wire        pc_src,
-	`endif
 	input  wire        clk,
 	input  wire        rst,
 
@@ -149,7 +26,7 @@ module datapath (
 
 	input  wire        slt_op,
 	input  wire        arith_op,
-	
+
 	input  wire    [1:0]    forwardAE,
 	input  wire     [1:0]   forwardBE,
 	input  wire        forwardAD,
@@ -179,6 +56,9 @@ module datapath (
 	input  wire        we_dm,
 
 
+	output wire [4:0] rf_waE,
+	output wire		   we_regE,
+
 	output  wire       we_dmM,
 	output  wire [31:0] instrD,
 	output wire        arith_overflow,
@@ -186,8 +66,8 @@ module datapath (
 	output wire [31:0] alu_out,
 	output wire [31:0] wd_dm,
 	output wire [31:0] rd3,
-		output wire		   dm_load_opE,
-		output wire		   dm_load_opM
+	output wire		   dm_load_opE,
+	output wire		   dm_load_opM
 );
 
 	assign rsD = instrD[25:21];
@@ -215,9 +95,7 @@ module datapath (
 	wire [31:0] rd2_out_cmp;
 
 
-	`ifdef SIM
-		assign alu_pb_sim = alu_pb;
-	`endif
+
 
 
 	wire [31:0] alu_pb;
@@ -232,97 +110,93 @@ module datapath (
 
 	wire we_dmE;
 
-	`ifndef SIM
-		wire [31:0] alu_src_a;
-		wire [31:0] alu_src_b;
-		wire muldiv_enE;
+	wire [31:0] alu_src_a;
+	wire [31:0] alu_src_b;
+	wire muldiv_enE;
 
-		reg    hilo_read_done,
-		muldiv_enE_qual;
+	reg    hilo_read_done,
+	muldiv_enE_qual;
 
-		/* Pipeline signals */
+	/* Pipeline signals */
 
-		// control signals
-		wire        pc_src;
-		wire [31:0] wd_rfW;
+	// control signals
+	wire        pc_src;
+	wire [31:0] wd_rfW;
 
-		wire		   branchE;
+	wire		   branchE;
 
-		wire		   jumpE;
+	wire		   jumpE;
 
-		wire		   alu_src_immE;
+	wire		   alu_src_immE;
 
-		wire		   we_regE;
-		wire		   we_regM;
-		wire		   we_regW;
+	wire		   we_regM;
+	wire		   we_regW;
 
 
-		wire		   hilo_mov_opE;
-		wire		   hilo_mov_opM;
-		wire		   hilo_mov_opW;
+	wire		   hilo_mov_opE;
+	wire		   hilo_mov_opM;
+	wire		   hilo_mov_opW;
 
-		wire		   hi0_lo1_selE;
+	wire		   hi0_lo1_selE;
 
-		wire		   mul0_div1_selE;
-		wire		   mul0_div1_selM;
-
-
-		wire		   wr_ra_jalE;
-
-		wire		   jr_selE;
-
-		wire		   wr_ra_instrE;
-
-		wire		   slt_opE;
-
-		wire		   arith_opE;
-
-		wire [2:0]	   alu_ctrlE;
-
-		wire		   signExt0_zeroExt1E;
-
-		wire		   dm_load_opW;
-
-		wire		   jal_wd_selW;
-
-		wire			mul0_div1_selW;
-
-		// datapath
-		wire [31:0]		pc_plus4D;
-		wire [31:0] pc_plus4E;
-
-		wire        zero;
-		wire	    equalsD;
-
-		wire [31:0]		wd_hiloW;
-
-		wire [31:0]		wd_alu_dmW;
-
-		wire [31:0] rd1_outE,
-		rd2_outE,
-		sext_immE;
-
-		wire [4:0] rdE,
-		shamtE;
+	wire		   mul0_div1_selE;
+	wire		   mul0_div1_selM;
 
 
-		wire [4:0] rf_waE;
+	wire		   wr_ra_jalE;
 
-		wire [31:0] alu_outE,
-		alu_outM,
-		alu_outW,
-		wd_dmM,
-		hilo_mux_outM,
-		hilo_mux_outE,
-		pc_plus8M,
-		pc_plus8W;
+	wire		   jr_selE;
 
-		wire [31:0] rd_dmW,
-		hilo_mux_outW;
+	wire		   wr_ra_instrE;
 
-		wire [31:0] pc_plus8E;
-		/* Pipeline signals end */
-	`endif
+	wire		   slt_opE;
+
+	wire		   arith_opE;
+
+	wire [2:0]	   alu_ctrlE;
+
+	wire		   signExt0_zeroExt1E;
+
+	wire		   dm_load_opW;
+
+	wire		   jal_wd_selW;
+
+	wire			mul0_div1_selW;
+
+	// datapath
+	wire [31:0]		pc_plus4D;
+	wire [31:0] pc_plus4E;
+
+	wire        zero;
+	wire	    equalsD;
+
+	wire [31:0]		wd_hiloW;
+
+	wire [31:0]		wd_alu_dmW;
+
+	wire [31:0] rd1_outE,
+	rd2_outE,
+	sext_immE;
+
+	wire [4:0] rdE,
+	shamtE;
+
+
+
+	wire [31:0] alu_outE,
+	alu_outM,
+	alu_outW,
+	wd_dmM,
+	hilo_mux_outM,
+	hilo_mux_outE,
+	pc_plus8M,
+	pc_plus8W;
+
+	wire [31:0] rd_dmW,
+	hilo_mux_outW;
+
+	wire [31:0] pc_plus8E;
+	/* Pipeline signals end */
 
 	assign rd1 = rd1_out;
 
@@ -555,38 +429,7 @@ module datapath (
 	);
 
 	regfile rf (
-		`ifdef SIM
-			.rAT          (rAT),
-			.rV0          (rV0),
-			.rV1          (rV1),
-			.rA0          (rA0),
-			.rA1          (rA1),
-			.rA2          (rA2),
-			.rT0          (rT0),
-			.rT1          (rT1),
-			.rT2          (rT2),
-			.rT3          (rT3),
-			.rT4          (rT4),
-			.rT5          (rT5),
-			.rT6          (rT6),
-			.rT7          (rT7),
-			.rS0          (rS0),
-			.rS1          (rS1),
-			.rS2          (rS2),
-			.rS3          (rS3),
-			.rS4          (rS4),
-			.rS5          (rS5),
-			.rS6          (rS6),
-			.rS7          (rS7),
-			.rT8          (rT8),
-			.rT9          (rT9),
-			.rK0          (rK0),
-			.rK1          (rK1),
-			.rGP          (rGP),
-			.rSP          (rSP),
-			.rFP          (rFP),
-			.rRA          (rRA),
-		`endif
+
 		.clk            (clk),
 		.we             (we_regW),
 		.ra1            (instrD[25:21]),
@@ -599,130 +442,130 @@ module datapath (
 		.rd3            (rd3)
 	);
 
-		mux2 #(32) rd1_out_fwd_haz(
-			.sel            (forwardAD),
-			.a              (rd1_out),
-			.b              (alu_outM),
-			.y              (rd1_out_cmp)
-		);
+	mux2 #(32) rd1_out_fwd_haz(
+		.sel            (forwardAD),
+		.a              (rd1_out),
+		.b              (alu_outM),
+		.y              (rd1_out_cmp)
+	);
 
-		mux2 #(32) rd2_out_fwd_haz(
-			.sel            (forwardBD),
-			.a              (rd2_out),
-			.b              (alu_outM),
-			.y              (rd2_out_cmp)
-		);
+	mux2 #(32) rd2_out_fwd_haz(
+		.sel            (forwardBD),
+		.a              (rd2_out),
+		.b              (alu_outM),
+		.y              (rd2_out_cmp)
+	);
 
-		ext_unit ext_imm(
-			.ext_sign0_zero1  (signExt0_zeroExt1),
-			.a                (instrD[15:0]),
-			.y                (sext_imm)
-		);
+	ext_unit ext_imm(
+		.ext_sign0_zero1  (signExt0_zeroExt1),
+		.a                (instrD[15:0]),
+		.y                (sext_imm)
+	);
 
-		// --- ALU Logic --- //
+	// --- ALU Logic --- //
 
-		// TODO: add forwarding to alu inputs and wd_dm
-		mux4 #(32) alu_pa_fwd_haz(
-			.sel            (forwardAE),
-			.a              (rd1_outE),
-			.b              (wd_rfW),
-			.c              (alu_outM),
-			.d              (32'd0),
-			.y              (alu_src_a)
-		);
+	// TODO: add forwarding to alu inputs and wd_dm
+	mux4 #(32) alu_pa_fwd_haz(
+		.sel            (forwardAE),
+		.a              (rd1_outE),
+		.b              (wd_rfW),
+		.c              (alu_outM),
+		.d              (32'd0),
+		.y              (alu_src_a)
+	);
 
-		mux4 #(32) alu_pb_fwd_haz(
-			.sel            (forwardBE),
-			.a              (rd2_outE),
-			.b              (wd_rfW),
-			.c              (alu_outM),
-			.d              (32'd0),
-			.y              (alu_pb)
-		);
+	mux4 #(32) alu_pb_fwd_haz(
+		.sel            (forwardBE),
+		.a              (rd2_outE),
+		.b              (wd_rfW),
+		.c              (alu_outM),
+		.d              (32'd0),
+		.y              (alu_pb)
+	);
 
-		mux2 #(32) alu_pb_mux(
-			.sel            (alu_src_immE),
-			.a              (alu_pb),
-			.b              (sext_immE),
-			.y              (alu_src_b)
-		);
-
-
-		alu alu(
-			.op                (alu_ctrlE),
-			.a                 (alu_src_a),
-			.b                 (alu_src_b),
-			.shamt             (shamtE),
-			.slt_op            (slt_opE),
-			.arith_op          (arith_opE),
-			.zero              (zero),
-			.overflow          (arith_overflow),
-			.y                 (alu_outE)
-		);
-
-		// --- MULTIPLIER/DIVIDER R-TYPE Logic --- //
-
-		mul_div_unit
-		mul_div(
-			.inA                    (rd1_outE),
-			.inB                    (rd2_outE),
-			.mul0_div1_sel          (mul0_div1_selE),
-			.outH                   (muldiv_highE),
-			.outL                   (muldiv_lowE)
-		);
+	mux2 #(32) alu_pb_mux(
+		.sel            (alu_src_immE),
+		.a              (alu_pb),
+		.b              (sext_immE),
+		.y              (alu_src_b)
+	);
 
 
-		dreg_en high_reg(
-			.clk            (clk),
-			.rst            (rst),
-			.clr            (1'b0),
-			.en				        (muldiv_enE_qual),
-			.d              (muldiv_highE),
-			.q              (muldiv_high_regE)
-		);
+	alu alu(
+		.op                (alu_ctrlE),
+		.a                 (alu_src_a),
+		.b                 (alu_src_b),
+		.shamt             (shamtE),
+		.slt_op            (slt_opE),
+		.arith_op          (arith_opE),
+		.zero              (zero),
+		.overflow          (arith_overflow),
+		.y                 (alu_outE)
+	);
+
+	// --- MULTIPLIER/DIVIDER R-TYPE Logic --- //
+
+	mul_div_unit
+	mul_div(
+		.inA                    (rd1_outE),
+		.inB                    (rd2_outE),
+		.mul0_div1_sel          (mul0_div1_selE),
+		.outH                   (muldiv_highE),
+		.outL                   (muldiv_lowE)
+	);
 
 
-		dreg_en low_reg(
-			.clk            (clk),
-			.rst            (rst),
-			.clr            (1'b0),
-			.en				        (muldiv_enE_qual),
-			.d              (muldiv_lowE),
-			.q              (muldiv_low_regE)
-		);
+	dreg_en high_reg(
+		.clk            (clk),
+		.rst            (rst),
+		.clr            (1'b0),
+		.en				        (muldiv_enE_qual),
+		.d              (muldiv_highE),
+		.q              (muldiv_high_regE)
+	);
 
-		mux2 #(32) hilo_data_mux(
-			.sel            (hi0_lo1_selE),
-			.a              (muldiv_high_regE),
-			.b              (muldiv_low_regE),
-			.y              (hilo_mux_outE)
-		);
 
-		// --- MEM Logic --- //
-		adder pc_plus_8(
-			.a              (pc_plus4E),
-			.b              (32'd4),
-			.y              (pc_plus8E)
-		);
+	dreg_en low_reg(
+		.clk            (clk),
+		.rst            (rst),
+		.clr            (1'b0),
+		.en				        (muldiv_enE_qual),
+		.d              (muldiv_lowE),
+		.q              (muldiv_low_regE)
+	);
 
-		mux2 #(32) wd_jal_mux(
-			.sel            (jal_wd_selW),
-			.a              (wd_hiloW),
-			.b              (pc_plus8W),
-			.y              (wd_rfW)
-		);
+	mux2 #(32) hilo_data_mux(
+		.sel            (hi0_lo1_selE),
+		.a              (muldiv_high_regE),
+		.b              (muldiv_low_regE),
+		.y              (hilo_mux_outE)
+	);
 
-		mux2 #(32) wd_hilo_mux(
-			.sel            (hilo_mov_opW),
-			.a              (wd_alu_dmW),
-			.b              (hilo_mux_outW),
-			.y              (wd_hiloW)
-		);
+	// --- MEM Logic --- //
+	adder pc_plus_8(
+		.a              (pc_plus4E),
+		.b              (32'd4),
+		.y              (pc_plus8E)
+	);
 
-		mux2 #(32) alu_dm_data_mux(
-			.sel            (dm_load_opW),
-			.a              (alu_outW),
-			.b              (rd_dmW),
-			.y              (wd_alu_dmW)
-		);
+	mux2 #(32) wd_jal_mux(
+		.sel            (jal_wd_selW),
+		.a              (wd_hiloW),
+		.b              (pc_plus8W),
+		.y              (wd_rfW)
+	);
+
+	mux2 #(32) wd_hilo_mux(
+		.sel            (hilo_mov_opW),
+		.a              (wd_alu_dmW),
+		.b              (hilo_mux_outW),
+		.y              (wd_hiloW)
+	);
+
+	mux2 #(32) alu_dm_data_mux(
+		.sel            (dm_load_opW),
+		.a              (alu_outW),
+		.b              (rd_dmW),
+		.y              (wd_alu_dmW)
+	);
 endmodule
