@@ -7,7 +7,7 @@ module dreg_sync_rst #(parameter WIDTH = 32) (
         output reg  [WIDTH-1:0] q
     );
 
-    always @ (posedge clk) 
+    always @ (posedge clk, posedge rst) 
 	begin
         if (rst) q <= 0;
         else     q <= d;

@@ -27,8 +27,8 @@ module datapath (
 	input  wire        slt_op,
 	input  wire        arith_op,
 
-	input  wire    [1:0]    forwardAE,
-	input  wire     [1:0]   forwardBE,
+	input  wire [1:0]  forwardAE,
+	input  wire [1:0]  forwardBE,
 	input  wire        forwardAD,
 	input  wire        forwardBD,
 	input  wire        stallF,
@@ -44,8 +44,6 @@ module datapath (
 	output wire		   we_regW,
 	output wire [4:0]  rf_waM,
 	output wire [4:0]  rf_waW,
-	output wire		   jal_wd_selE,
-	output wire		   jal_wd_selM,
 
 
 	input  wire [2:0]  alu_ctrl,
@@ -94,9 +92,8 @@ module datapath (
 	wire [31:0] rd1_out_cmp;
 	wire [31:0] rd2_out_cmp;
 
-
-
-
+	wire		   jal_wd_selE;
+	wire		   jal_wd_selM;
 
 	wire [31:0] alu_pb;
 	wire [31:0] jr_pc_next;
@@ -284,7 +281,7 @@ module datapath (
 	dreg_en #(20)csRegE(
 		.clk            (clk),
 		.rst            (rst),
-		.clr            (flushE),
+		.clr            (flushE | rst),
 		.en             (1'b0),
 		.d              (csSigsD),
 		.q              (csSigsE)
@@ -328,7 +325,7 @@ module datapath (
 	dreg_en #(64)dpRegD(
 		.clk            (clk),
 		.rst            (rst),
-		.clr            (pc_src),
+		.clr            (pc_src | rst),
 		.en             (stallD),
 		.d              ({instr, pc_plus4}),
 		.q              ({instrD, pc_plus4D})
@@ -337,7 +334,7 @@ module datapath (
 	dreg_en #(148)dpRegE(
 		.clk            (clk),
 		.rst            (rst),
-		.clr            (flushE),
+		.clr            (flushE | rst),
 		.en             (1'b0),
 		.d              ({rsD, rtD, rdD, sext_imm, rd1_out, rd2_out, instrD[10:6], pc_plus4D}),
 		.q              ({rsE, rtE, rdE, sext_immE, rd1_outE, rd2_outE, shamtE, pc_plus4E})
@@ -421,6 +418,7 @@ module datapath (
 		.b              (5'd31),
 		.y              (jal_wa)
 	);
+	
 	mux2 #(5) rf_wa_mux(
 		.sel            (jumpE),
 		.a              (instr_wa),
@@ -429,7 +427,6 @@ module datapath (
 	);
 
 	regfile rf (
-
 		.clk            (clk),
 		.we             (we_regW),
 		.ra1            (instrD[25:21]),
@@ -507,8 +504,8 @@ module datapath (
 
 	mul_div_unit
 	mul_div(
-		.inA                    (rd1_outE),
-		.inB                    (rd2_outE),
+		.inA                    (alu_src_a),
+		.inB                    (alu_src_b),
 		.mul0_div1_sel          (mul0_div1_selE),
 		.outH                   (muldiv_highE),
 		.outL                   (muldiv_lowE)
@@ -519,7 +516,7 @@ module datapath (
 		.clk            (clk),
 		.rst            (rst),
 		.clr            (1'b0),
-		.en				        (muldiv_enE_qual),
+		.en				(muldiv_enE_qual),
 		.d              (muldiv_highE),
 		.q              (muldiv_high_regE)
 	);
@@ -529,7 +526,7 @@ module datapath (
 		.clk            (clk),
 		.rst            (rst),
 		.clr            (1'b0),
-		.en				        (muldiv_enE_qual),
+		.en				(muldiv_enE_qual),
 		.d              (muldiv_lowE),
 		.q              (muldiv_low_regE)
 	);

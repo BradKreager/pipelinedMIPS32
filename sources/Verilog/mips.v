@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 
 module mips (
-
 	input  wire        clk,
 	input  wire        rst,
 	input  wire [4:0]  ra3,
@@ -12,7 +11,6 @@ module mips (
 	output wire [31:0] alu_out,
 	output wire [31:0] wd_dm,
 	output wire [31:0] rd3
-
 );
 
 
@@ -35,8 +33,8 @@ module mips (
 	wire  wr_ra_instr;
 	wire  slt_op;
 	wire  muldiv_op;
-	wire  forwardAE;
-	wire  forwardBE;
+	wire [1:0]  forwardAE;
+	wire [1:0]  forwardBE;
 	wire  forwardAD;
 	wire  forwardBD;
 	wire  stallF;
@@ -109,9 +107,7 @@ module mips (
 		.we_regW              (we_regW),
 		.rf_waE                      (rf_waE),
 		.rf_waM               (rf_waM),
-		.rf_waW               (rf_waW),
-		.jal_wd_selM                 (jal_wd_selM),
-		.jal_wd_selE          (jal_wd_selE)
+		.rf_waW               (rf_waW)
 	);
 
 	controlunit cu(

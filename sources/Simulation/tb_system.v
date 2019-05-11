@@ -10,6 +10,7 @@ wire [31:0] gpO2;
 wire [31:0] gpO1;
 wire [31:0] pc_current;
  
+assign gpI2 = gpO1;
 
 system DUT (
 .clk                 (clk),
@@ -21,7 +22,6 @@ system DUT (
 .pc_current          (pc_current)
 );
 
-	assign gpI2 = gpO1;
 
 	task tick;
 		begin
@@ -84,7 +84,7 @@ system DUT (
 	integer i = 2;
 
 	wire fact_done; 
-	assign fact_done = (pc_current == 32'h34) ? 1'b1 : 1'b0;
+	assign fact_done = (pc_current == 32'h3c) ? 1'b1 : 1'b0;
 
 	initial
 	begin

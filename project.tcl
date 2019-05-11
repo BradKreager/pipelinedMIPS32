@@ -147,6 +147,7 @@ add_files -norecurse -fileset $obj $files
 # Import local files from the original project
 set files [list \
  [file normalize "${origin_dir}/sources/Verilog/adder.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/addr_dec.v"]\
  [file normalize "${origin_dir}/sources/Verilog/alu.v"]\
  [file normalize "${origin_dir}/sources/Verilog/auxdec.v"]\
  [file normalize "${origin_dir}/sources/Verilog/button_debouncer.v"]\
@@ -158,6 +159,14 @@ set files [list \
  [file normalize "${origin_dir}/sources/Verilog/dmem.v"]\
  [file normalize "${origin_dir}/sources/Verilog/dreg_sync_rst.v"]\
  [file normalize "${origin_dir}/sources/Verilog/ext_unit.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/fact_ad.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/fact_top.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/factorial.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/factorial_dp.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/factorial_fsm.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/gpio_ad.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/gpio_top.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/hazard_monitor.v"]\
  [file normalize "${origin_dir}/sources/Verilog/hex_to_7seg.v"]\
  [file normalize "${origin_dir}/sources/Verilog/imem.v"]\
  [file normalize "${origin_dir}/sources/Verilog/led_mux.v"]\
@@ -169,21 +178,15 @@ set files [list \
  [file normalize "${origin_dir}/sources/Verilog/regfile.v"]\
  [file normalize "${origin_dir}/sources/Verilog/mips_fpga.v"]\
  [file normalize "${origin_dir}/sources/Verilog/dreg.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/dreg_en.v"]\
+ [file normalize "${origin_dir}/sources/Verilog/dreg_en_pos.v"]\
  [file normalize "${origin_dir}/sources/Verilog/comb_multiplier.v"]\
  [file normalize "${origin_dir}/sources/Verilog/comparator.v"]\
- [file normalize "${origin_dir}/sources/Verilog/fact_ad.v"]\
- [file normalize "${origin_dir}/sources/Verilog/factorial.v"]\
- [file normalize "${origin_dir}/sources/Verilog/factorial_dp.v"]\
- [file normalize "${origin_dir}/sources/Verilog/factorial_fsm.v"]\
  [file normalize "${origin_dir}/sources/Verilog/mux4.v"]\
  [file normalize "${origin_dir}/sources/Verilog/up_down_counter.v"]\
- [file normalize "${origin_dir}/sources/Verilog/fact_top.v"]\
  [file normalize "${origin_dir}/sources/Verilog/dff_pre_clr.v"]\
- [file normalize "${origin_dir}/sources/Verilog/gpio_ad.v"]\
- [file normalize "${origin_dir}/sources/Verilog/gpio_top.v"]\
  [file normalize "${origin_dir}/sources/Verilog/system.v"]\
  [file normalize "${origin_dir}/sources/Verilog/system_fpga.v"]\
- [file normalize "${origin_dir}/sources/Verilog/addr_dec.v"]\
  [file normalize "${origin_dir}/sources/memfile.dat"]\
 ]
 #set imported_files [import_files -fileset sources_1 $files]
@@ -234,6 +237,7 @@ if {[string equal [get_filesets -quiet sim_1] ""]} {
 set obj [get_filesets sim_1]
 # Import local files from the original project
 set files [list \
+ [file normalize "${origin_dir}/sources/Simulation/tb_system.v"] \
  [file normalize "${origin_dir}/sources/Simulation/tb_mips_top.v"]\
  [file normalize "${origin_dir}/sources/Simulation/tb_auxdec.v"]\
  [file normalize "${origin_dir}/sources/Simulation/tb_gpio.v"]\
@@ -248,6 +252,10 @@ set files [list \
 # set imported_files [import_files -fileset sim_1 $files]
 set add_files [add_files -fileset sim_1 $files]
 
+set files [list \
+ [file normalize "${origin_dir}/config/waveforms/tb_system_behav.wcfg" ]\
+]
+set imported_files [import_files -fileset sim_1 $files]
 # Set 'sim_1' fileset file properties for remote files
 # None
 
@@ -256,7 +264,7 @@ set add_files [add_files -fileset sim_1 $files]
 
 # Set 'sim_1' fileset properties
 set obj [get_filesets sim_1]
-set_property -name "top" -value "tb_mips_top" -objects $obj
+set_property -name "top" -value "tb_system" -objects $obj
 set_property -name "top_auto_set" -value "0" -objects $obj
 set_property -name "top_lib" -value "xil_defaultlib" -objects $obj
 set_property -name "verilog_define" -value "SIM" -objects $obj
