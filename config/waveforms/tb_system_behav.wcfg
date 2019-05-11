@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_system_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_system" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="286"></NameColumnWidth>
+      <ValueColumnWidth column_width="123"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/tb_system/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/gpI1" type="array">
+      <obj_property name="ElementShortName">gpI1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">gpI1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/gpI2" type="array">
+      <obj_property name="ElementShortName">gpI2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">gpI2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/gpO2" type="array">
+      <obj_property name="ElementShortName">gpO2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">gpO2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/gpO1" type="array">
+      <obj_property name="ElementShortName">gpO1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">gpO1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/pc_current" type="array">
+      <obj_property name="ElementShortName">pc_current[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_current[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/errors" type="array">
+      <obj_property name="ElementShortName">errors[31:0]</obj_property>
+      <obj_property name="ObjectShortName">errors[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/exp_factorial" type="array">
+      <obj_property name="ElementShortName">exp_factorial[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exp_factorial[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/test" type="array">
+      <obj_property name="ElementShortName">test[31:0]</obj_property>
+      <obj_property name="ObjectShortName">test[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/fact_done" type="logic">
+      <obj_property name="ElementShortName">fact_done</obj_property>
+      <obj_property name="ObjectShortName">fact_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/alu_out" type="array">
+      <obj_property name="ElementShortName">alu_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/rf/rf" type="array">
+      <obj_property name="ElementShortName">rf[0:31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">rf[0:31][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/rf/n" type="array">
+      <obj_property name="ElementShortName">n[31:0]</obj_property>
+      <obj_property name="ObjectShortName">n[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/wd_rfW" type="array">
+      <obj_property name="ElementShortName">wd_rfW[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wd_rfW[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/alu_src_a" type="array">
+      <obj_property name="ElementShortName">alu_src_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src_a[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/alu_src_b" type="array">
+      <obj_property name="ElementShortName">alu_src_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src_b[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/sext_immE" type="array">
+      <obj_property name="ElementShortName">sext_immE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sext_immE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/forwardAE" type="array">
+      <obj_property name="ElementShortName">forwardAE[1:0]</obj_property>
+      <obj_property name="ObjectShortName">forwardAE[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_system/DUT/MIPS/dp/forwardBE" type="array">
+      <obj_property name="ElementShortName">forwardBE[1:0]</obj_property>
+      <obj_property name="ObjectShortName">forwardBE[1:0]</obj_property>
+   </wvobject>
+</wave_config>

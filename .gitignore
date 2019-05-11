@@ -1,6 +1,8 @@
 /**
 !/sources/
 !/sources/**/*
+!/config/
+!/config/**/*
 !/project.tcl
 !/build_project.bat
 !/README.md
