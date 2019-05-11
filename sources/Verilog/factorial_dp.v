@@ -46,9 +46,10 @@ module factorial_dp(
 		.y(prod_mux_out_w)
 	);
 
-	dreg_sync_rst_en prod_reg(
+	dreg_en_pos prod_reg(
 		.clk(clk),
 		.rst(rst),
+		.clr(1'b0),
 		.en(prod_reg_ld),
 		.d(prod_mux_out_w),
 		.q(prod_reg_out_w)

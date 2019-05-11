@@ -2,10 +2,13 @@
 
 module mips (
 	`ifdef SIM
+		output wire        pc_src,
+		output wire [31:0] alu_src_a,
+		output wire [31:0] alu_src_b,
 		output  wire        lwstall,
 		output  wire        branchstall,
-		output wire  forwardAE,
-		output wire  forwardBE,
+		output wire  [1:0]forwardAE,
+		output wire  [1:0]forwardBE,
 		output wire  forwardAD,
 		output wire  forwardBD,
 		output wire  stallF,
@@ -84,7 +87,6 @@ module mips (
 		output wire		   mul0_div1_selE,
 		output wire		   mul0_div1_selM,
 
-		output wire		   dm_load_opE,
 
 		output wire		   wr_ra_jalE,
 
@@ -100,6 +102,7 @@ module mips (
 
 		output wire		   signExt0_zeroExt1E,
 
+		output wire		   dm_load_opE,
 		output wire		   dm_load_opM,
 		output wire		   dm_load_opW,
 
@@ -213,6 +216,9 @@ module mips (
 
 	datapath dp (
 		`ifdef SIM
+			.pc_src                    (pc_src),
+			.alu_src_a                 (alu_src_a),
+			.alu_src_b                 (alu_src_b),
 			.muldiv_enE                  (muldiv_enE),
 			.muldiv_enE_qual             (muldiv_enE_qual),
 			.hilo_read_done              (hilo_read_done),
@@ -229,7 +235,6 @@ module mips (
 			.hi0_lo1_selE                (hi0_lo1_selE),
 			.mul0_div1_selE              (mul0_div1_selE),
 			.mul0_div1_selM              (mul0_div1_selM),
-			.dm_load_opE                 (dm_load_opE),
 			.wr_ra_jalE                  (wr_ra_jalE),
 			.jr_selE                     (jr_selE),
 			.wr_ra_instrE                (wr_ra_instrE),
@@ -237,7 +242,6 @@ module mips (
 			.arith_opE                   (arith_opE),
 			.alu_ctrlE                   (alu_ctrlE),
 			.signExt0_zeroExt1E          (signExt0_zeroExt1E),
-			.dm_load_opM                 (dm_load_opM),
 			.dm_load_opW                 (dm_load_opW),
 			.jal_wd_selW                 (jal_wd_selW),
 			.mul0_div1_selW              (mul0_div1_selW),
@@ -293,6 +297,8 @@ module mips (
 			.rFP          (rFP),
 			.rRA          (rRA),
 		`endif
+		.dm_load_opE                 (dm_load_opE),
+		.dm_load_opM                 (dm_load_opM),
 		.clk                    (clk),
 		.rst                    (rst),
 		.branch                 (branch),
@@ -393,8 +399,8 @@ module mips (
 			.rf_waE                      (rf_waE),
 			.rf_waM               (rf_waM),
 			.rf_waW               (rf_waW),
-			.jal_wd_selM                 (jal_wd_selM),
-			.jal_wd_selE          (jal_wd_selE),
+			.dm_load_opE                 (dm_load_opE),
+			.dm_load_opM                 (dm_load_opM),
 			.branch               (branch)
 		);
 endmodule

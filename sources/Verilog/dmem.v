@@ -28,6 +28,7 @@ always @ (negedge clk)
     addr <= a;
   end
 
-assign q = ram[addr];
+//assign q = ram[addr];
+assign q = ram[a];
 
 endmodule

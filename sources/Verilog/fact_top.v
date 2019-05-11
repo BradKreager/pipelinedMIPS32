@@ -67,54 +67,60 @@ module fact_top(
     );
     
     //The dreg stores the number to be factorialed
-    dreg_sync_rst_en#(4) input_dreg(
+    dreg_en_pos#(4) input_dreg(
         .clk(clk),
         .rst(rst),
+		.clr(1'b0),
         .en(we1),
         .d(wd),
         .q(n)
     );
     
     //This dreg stores the go bit
-    dreg_sync_rst_en #(1) go_bit_dreg(
+    dreg_en_pos #(1) go_bit_dreg(
         .clk(clk),
         .rst(rst),
+		.clr(1'b0),
         .en(we2),
         .d(wd[0]),
         .q(go)
     );
     
     //This dreg takes the combinational go pulse and generates the real go pulse
-    dreg_sync_rst_en #(1) go_signal_dreg(
+    dreg_en_pos #(1) go_signal_dreg(
         .clk(clk),
         .rst(rst),
+		.clr(1'b0),
         .en(1'b1),
         .d(go_pulse_comb),
         .q(go_pulse)
     );
     
     //This dreg stores the done flag from the factorial accelerator
-    dreg_sync_rst_en #(1) done_bit_dreg(
+    dreg_en_pos #(1) done_bit_dreg(
         .clk(clk),
         .rst(go_pulse_comb),
+		.clr(1'b0),
         .en(1'b1),
         .d(done),
         .q(res_done)
     );
     
     //This dreg stores the err flag from the factorial accelerator
-    dreg_sync_rst_en #(1) err_bit_dreg(
+    dreg_en_pos #(1) err_bit_dreg(
         .clk(clk),
         .rst(go_pulse_comb),
+		.clr(1'b0),
         .en(1'b1),
         .d(err),
         .q(res_err)
     );
     
     //This dreg stores the result of the factorial operation
-    dreg_sync_rst_en #(32) result_dreg(
+    dreg_en_pos #(32) result_dreg(
         .clk(clk),
         .rst(rst),
+		.clr(1'b0),
         .en(done),
         .d(nf),
         .q(result)

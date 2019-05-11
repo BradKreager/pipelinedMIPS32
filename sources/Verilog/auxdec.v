@@ -19,7 +19,7 @@ wire jump_reg_op;
 
 
 assign slt_op = 
-	(r_type)    ? funct[3] :
+	(r_type)     ? funct[3] :
 	(alu_op[2])  ? 1'b0     :
 	(~alu_op[1]) ? 1'b0     : 1'b1;
 

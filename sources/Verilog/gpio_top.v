@@ -21,17 +21,19 @@ module gpio_top # (parameter WIDTH = 32)(
     wire we1;
     wire [1:0] rdsel;
     
-    dreg_sync_rst_en #(WIDTH) gpO1_reg(
+    dreg_en_pos #(WIDTH) gpO1_reg(
         .clk(clk),
         .rst(rst),
+		.clr(1'b0),
         .en(we1),
         .d(wd),
         .q(gpO1)
     );
     
-    dreg_sync_rst_en #(WIDTH) gpO2_reg(
+    dreg_en_pos #(WIDTH) gpO2_reg(
         .clk(clk),
         .rst(rst),
+		.clr(1'b0),
         .en(we2),
         .d(wd),
         .q(gpO2)

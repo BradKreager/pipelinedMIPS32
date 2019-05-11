@@ -4,10 +4,13 @@
  
 module system (
 `ifdef SIM
+	output wire        pc_src,
+	output wire [31:0] alu_src_a,
+	output wire [31:0] alu_src_b,
 	output  wire        lwstall,
 	output  wire        branchstall,
-	output wire  forwardAE,
-	output wire  forwardBE,
+	output wire[1:0]  forwardAE,
+	output wire[1:0]  forwardBE,
 	output wire  forwardAD,
 	output wire  forwardBD,
 	output wire  stallF,
@@ -160,6 +163,9 @@ output [31:0]pc_current
 
 mips MIPS(
 	`ifdef SIM
+		.pc_src                    (pc_src),
+		.alu_src_a                 (alu_src_a),
+		.alu_src_b                 (alu_src_b),
 		.lwstall       (lwstall),
 		.branchstall   (branchstall),
 		.forwardAE                   (forwardAE),
@@ -276,19 +282,6 @@ mips MIPS(
 	.alu_out                     (alu_out),
 	.wd_dm                       (wd_dm)
 );
-	imem imem (
-		.a              (pc_current[7:2]),
-		.y              (instr)
-	);
-
-	dmem dmem (
-		.clk            (clk),
-		.we             (we_dmM),
-		.a              (alu_out[7:2]),
-		.d              (wd_dm),
-		.q              (rd_dm)
-	);
-
 	wire we_gpio;
 	wire we_fact;
 	wire we_mem;
@@ -297,6 +290,20 @@ mips MIPS(
 
 	wire [31:0]fact_rd;
 	wire [31:0]gpio_rd;
+
+	imem imem (
+		.a              (pc_current[7:2]),
+		.y              (instr)
+	);
+
+	dmem dmem (
+		.clk            (clk),
+		.we             (we_mem),
+		.a              (alu_out[7:2]),
+		.d              (wd_dm),
+		.q              (rd_dm)
+	);
+
 
 	addr_dec addr(
 		.we(we_dmM),
