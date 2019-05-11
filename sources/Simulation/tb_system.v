@@ -62,18 +62,14 @@ system DUT (
 		integer result, count;
 		begin //routine
 			result = 1;
-			if(n <= 1)
-			begin
-				fact = 1;
-			end
-			else
+			if(n > 1)
 			begin
 				for(count = n; count > 0; count = count - 1)
 				begin
 					result = result * count;
 				end
-				fact = result;
 			end //end else
+                fact = result;
 		end //end routine
 	endfunction
 	
@@ -81,7 +77,7 @@ system DUT (
 
 
 
-	integer i = 2;
+	integer i = 0;
 
 	wire fact_done; 
 	assign fact_done = (pc_current == 32'h3c) ? 1'b1 : 1'b0;
