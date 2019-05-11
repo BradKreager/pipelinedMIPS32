@@ -313,7 +313,7 @@ module tb_system();
 
 
 
-	integer i = 2;
+	integer i = 0;
 
 	wire fact_done; 
 	assign fact_done = (pc_current == 32'h34) ? 1'b1 : 1'b0;
